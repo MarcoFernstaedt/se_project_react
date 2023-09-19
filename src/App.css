@@ -2,24 +2,3 @@
     padding: 0 20px;
 }
 
-.weather {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    background-color: black; 
-    color: white;
-    z-index: -1;
-}
-
-.weather__info {
-    position: absolute;
-    top: 20px;
-    left: 16px;
-    font-size: 36px;
-    line-height: 40px;
-    font-weight: 700;
-}
-
-.weather__image {
-    width: 100%;
-}
