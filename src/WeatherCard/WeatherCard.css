@@ -2,18 +2,16 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    background-color: black; 
-    color: white;
-    z-index: -1;
 }
 
 .weather__info {
     position: absolute;
-    top: 20px;
+    top: 12px;
     left: 16px;
     font-size: 36px;
     line-height: 40px;
     font-weight: 700;
+    color: #fff;
 }
 
 .weather__image {

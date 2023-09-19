@@ -1,14 +1,14 @@
 import Header from "./Header/Header";
-import WeatherCard from "./WeatherCard/WeatherCard";
+import Main from './Main/Main';
+import Footer from './Footer/Footer';
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <main className="main">
-        <WeatherCard day={true} weather={'sunny'} weatherTemp={'95'} />
-      </main>
+      <Main />
+      <Footer />
     </div>
   );
 }

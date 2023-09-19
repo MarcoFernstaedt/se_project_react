@@ -1,4 +1,5 @@
 import { weatherConditions } from "../utils/utils";
+import './WeatherCard.css';
 
 const WeatherCard = ({ day = true, weather = "sunny", weatherTemp = 0 }) => {
   const imageSrc = weatherConditions.filter((i) => {
