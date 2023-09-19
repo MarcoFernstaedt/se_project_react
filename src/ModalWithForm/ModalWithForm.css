@@ -7,28 +7,59 @@
     bottom: 0;
     left: 0;
     padding: 0 19px;
-    opacity: 0;
+    /* opacity: 0; */
     /* transition: visibility 0.5s, opacity 0.5s linear; */
-    /* z-index: 999; */
+    z-index: 999;
     background-color: rgba(0, 0, 0, 0.5);
+    font-family: Cabnet Grotesk;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 799;
   }
-  
-  .modal_opened {
-    visibility: visible;
-    opacity: 1;
+
+  .modal__close {
+    align-self: end;
+    background-image: url("../images/close-icon.svg");
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
   }
   
   .modal__content {
-    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 496px;
     width: 100%;
     margin: auto auto;
-    padding: 34px 36px;
-    position: relative;
+    padding: 28px 36px;
+    /* position: relative; */
     border-radius: 20px;
     box-shadow: 0 0 0 25px rgba(0, 0, 0, 0.15);
     background-color: #fff;
   }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal__button {
+    width: 124px;
+    height: 36px;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+  }
+
+  /* .modal_opened {
+    visibility: visible;
+    opacity: 1;
+  } */
   
   /* .modal__container_confirm {
     max-height: 181px;
@@ -36,20 +67,6 @@
   
   .modal__container_avatar {
     max-height: 272px;
-  }
-  
-  .modal__close {
-    background-image: url("../images/close-button.svg");
-    position: absolute;
-    bottom: calc(100% + 5px);
-    left: calc(100% + 5px);
-    border: none;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
   }
   
   .modal__close:hover {
@@ -65,11 +82,6 @@
     font-size: 24px;
     line-height: 29px;
     color: #000;
-  }
-  
-  .modal__form {
-    display: flex;
-    flex-direction: column;
   }
   
   .modal__label {

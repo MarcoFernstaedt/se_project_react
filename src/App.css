@@ -1,0 +1,9 @@
+.form__input {
+    border: none;
+    border-bottom: solid 1px #000;
+    /* height: 52px; */
+}
+
+.form__label:not(:first-of-type) {
+    margin-top: 24px;
+}

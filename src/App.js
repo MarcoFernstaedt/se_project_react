@@ -13,21 +13,21 @@ function App() {
     setActiveModal('create');
   }
 
+  const handleCloseModal = () => {
+    setActiveModal('');
+  }
+
   return (
     <div className="App">
       <Header onCreateModal={handleCreateModal} />
       <Main weatherTemp={weatherTemp} />
       <Footer />
       {activeModal === 'create' && (
-        <ModalWithForm title="New Garmnet">
-          <label>
-            Name
-            <input type="text" name="name" minLength="1" maxLength="36" />
-          </label>
-          <label>
-            Image
-            <input type="url" name="link" />
-          </label>
+        <ModalWithForm title="New Garmnet" onClose={handleCloseModal}>
+          <label className="form__label">Name</label>
+          <input className='form__input' type="text" name="name" minLength="1" maxLength="36" placeholder="Name" />
+          <label className='form__label' >Image</label>
+          <input className="form__input" type="url" name="link" placeholder="Image URL" />
           <p>Select the weather type:</p>
           <div>
             <div>
