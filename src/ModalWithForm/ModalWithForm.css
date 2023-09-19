@@ -52,8 +52,16 @@
     width: 124px;
     height: 36px;
     padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #000;
     color: #fff;
+  }
+
+  .modal__button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .modal__button:disabled {
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   /* .modal_opened {
