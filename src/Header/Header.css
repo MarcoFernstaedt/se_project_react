@@ -1,21 +1,21 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 80px;
-    background-color: saddlebrown;
-  }
-  
-  .header__logo-icon {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 0 20px;
-  }
-  
-  .header__avatar-icon {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 0 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  padding: 0 20px;
+}
+
+.header__logo-icon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.header__avatar-icon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+}

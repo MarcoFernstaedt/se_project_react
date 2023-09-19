@@ -1,22 +1,23 @@
-import './Header.css';
+import "./Header.css";
 
 const Header = () => {
-
-    return (
-        <header className="header">
-        <div className='header__logo-icon'>
-          <img src='/images/logo.svg' alt='What to Wear Logo' />
-          <div>June 15, New York</div>
+  const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
+  
+  return (
+    <header className="header">
+      <div className="header__logo-icon">
+        <img src={require('../images/logo.svg').default} />
+        <div>{currentDate}</div>
+      </div>
+      <div className="header__avatar-icon">
+        <div>
+          <button type="button">+ Add clothes</button>
         </div>
-        <div className='header__avatar-icon'>
-            <div>
-                <button type='button'>+ Add clothes</button>
-            </div>
-            <div>Terrence Tegegne</div>
-            <img src='/images/avatar.svg' alt='avatar logo' />
-            </div>
-        </header>
-    )
-}
+        <div>Terrence Tegegne</div>
+        <img src={require("../images/avatar.svg").default} alt="avatar logo" />
+      </div>
+    </header>
+  );
+};
 
 export default Header;
