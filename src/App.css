@@ -1,3 +1,7 @@
+.App {
+    padding: 0 40px;
+}
+
 .form__input {
     border: none;
     border-bottom: solid 1px #000;
