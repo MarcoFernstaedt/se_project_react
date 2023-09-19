@@ -1,6 +1,6 @@
 import "./Header.css";
 
-const Header = () => {
+const Header = ({onCreateModal}) => {
   const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
   
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       </div>
       <div className="header__avatar-icon">
         <div>
-          <button type="button">+ Add clothes</button>
+          <button type="text" onClick={onCreateModal} >+ Add clothes</button>
         </div>
         <div>Terrence Tegegne</div>
         <img src={require("../images/avatar.svg").default} alt="avatar logo" />
