@@ -58,12 +58,15 @@
   margin-top: 24px;
 }
 
-.form__input-radio {
+.form__input-radio + .form__label-radio {
   color: rgba(0, 0, 0, 0.5);
 }
 
 .form__input-radio:checked {
   accent-color: #000;
+}
+
+.form__input-radio:checked + .form__label-radio {
   color: #000;
 }
 
