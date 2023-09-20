@@ -4,6 +4,7 @@ import Footer from "./Footer/Footer";
 import ModalWithForm from "./ModalWithForm/ModalWithForm";
 import { useState } from "react";
 import "./App.css";
+import './ModalWithForm/ModalWithForm.css';
 
 function App() {
   const weatherTemp = 75;
@@ -31,16 +32,22 @@ function App() {
           <p>Select the weather type:</p>
           <div>
             <div>
-              <input type="radio" id="hot" value="hot" />
-              <label>hot</label>
+              <label>
+                <input className="form__input-radio form__input-radio_invisable" type="radio" id="hot" value="hot" name='weather' />
+                <span className="form__input-radio_visable">Hot</span>
+              </label>
             </div>
             <div>
-              <input type="radio" id="warm" value="warm" />
-              <label>warm</label>
+            <label>
+                <input className="form__input-radio" type="radio" id="warm" value="warm" name='weather' />
+                <span className="form__input-radio_visable">Warm</span>
+              </label>
             </div>
             <div>
-              <input type="radio" id="cold" value="cold" />
-              <label>cold</label>
+            <label>
+                <input className="form__input-radio" type="radio" id="cold" value="cold" name='weather' />
+                <span className="form__input-radio_visable">Cold</span>
+              </label>
             </div>
           </div>
         </ModalWithForm>
