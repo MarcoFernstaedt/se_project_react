@@ -58,25 +58,14 @@
   margin-top: 24px;
 }
 
-/* .form__input-radio_invisable {
-  visibility: none; 
-} */
-
 .form__input-radio {
-  accent-color: #000;
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  /* color: rgba(0, 0, 0, 0.5); */
+  color: rgba(0, 0, 0, 0.5);
 }
 
-/* .form__input-radio {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: rgba(0, 0, 0, 0.5);
-} */
-
-/* .form__input-radio:focus {
-  background-color: rgba(0, 0, 0, 1.0);
-  color: rgba(0, 0, 0, 1.0);
-} */
+.form__input-radio:checked {
+  accent-color: #000;
+  color: #000;
+}
 
 .modal__button {
   width: 124px;
