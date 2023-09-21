@@ -1,4 +1,4 @@
-import { weatherConditions } from "../utils/utils";
+import { weatherConditions } from "../utils/constants";
 import './WeatherCard.css';
 
 const WeatherCard = ({ day = true, weather = "sunny", weatherTemp = 0 }) => {
