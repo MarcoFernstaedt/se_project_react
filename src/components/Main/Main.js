@@ -13,7 +13,7 @@ const Main = ({ weatherTemp, onSelectCard }) => {
 
   return (
     <main className="main">
-      <WeatherCard day={true} weather={"sunny"} weatherTemp={weatherTemp} />
+      <WeatherCard day={true} weather={"cloudy"} weatherTemp={weatherTemp} />
       <section className="card-wrapper">
         Today is {weatherTemp} F / You may want to wear:
         <div className="card__items">

@@ -68,7 +68,7 @@ function App() {
             placeholder="Image URL"
           />
           <p>Select the weather type:</p>
-          <div>
+          <div class='form__input-container-radio'>
             <div>
               <input
                 className="form__input-radio"
