@@ -9,6 +9,10 @@
     border-radius: 10px;
 }
 
+.card__image:hover {
+    cursor: pointer;
+}
+
 .card__name {
     text-align: center;
 }

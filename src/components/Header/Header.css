@@ -16,6 +16,10 @@
   border: none;
 }
 
+.header__button:hover {
+  cursor: pointer;
+}
+
 .header__avatar-icon {
   display: flex;
   align-items: center;
