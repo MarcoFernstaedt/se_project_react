@@ -1,12 +1,12 @@
-import Header from "./Header/Header";
-import Main from "./Main/Main";
-import Footer from "./Footer/Footer";
-import ModalWithForm from "./ModalWithForm/ModalWithForm";
-import ItemModal from "./ItemModal/ItemModal";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ItemModal from "../ItemModal/ItemModal";
 import { useEffect, useState } from "react";
-import { getForecastWeather, parseWeatherData } from "./utils/weatherApi.js";
+import { getForecastWeather, parseWeatherData } from "../utils/weatherApi.js";
 import "./App.css";
-import "./ModalWithForm/ModalWithForm.css";
+import "../ModalWithForm/ModalWithForm.css";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
