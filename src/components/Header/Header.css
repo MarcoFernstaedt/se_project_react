@@ -12,6 +12,10 @@
   padding: 0 20px;
 }
 
+.header__button {
+  border: none;
+}
+
 .header__avatar-icon {
   display: flex;
   align-items: center;
