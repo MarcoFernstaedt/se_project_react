@@ -1,11 +1,10 @@
 import { weatherConditions } from "../../utils/constants";
+import { findWeatherOption } from "../../utils/weatherApi";
 import './WeatherCard.css';
 
 const WeatherCard = ({ day , weather, weatherTemp }) => {
-  const weatherOption = weatherConditions.filter((option) => {
-    return option.day === day && option.weather === weather
-  });
-
+  const weatherOption = weatherConditions.filter((option) => findWeatherOption(option, day, weather));
+  
   const imageSrcUrl = weatherOption[0].url || "";
 
   return (

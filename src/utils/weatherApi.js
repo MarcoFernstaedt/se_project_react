@@ -32,4 +32,13 @@ const getWeatherType = (weatherTemp) => {
   }
 };
 
-export { getWeatherType, parseWeatherData, getForecastWeather };
+const findWeatherOption = (option, day, weather) => {
+  return option.day === day && option.weather === weather;
+};
+
+export {
+  getWeatherType,
+  parseWeatherData,
+  getForecastWeather,
+  findWeatherOption,
+};
