@@ -70,4 +70,9 @@ const defaultClothingItems = [
   },
 ];
 
-export { weatherConditions, defaultClothingItems };
+const apiKey = "7fdcb46da96fb444e3ed010cf264fd9e";
+
+const latitude = 44.34;
+const longitude = 10.99;
+
+export { weatherConditions, defaultClothingItems, apiKey, latitude, longitude };

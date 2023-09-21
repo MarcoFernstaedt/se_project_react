@@ -4,7 +4,10 @@ import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { useEffect, useState } from "react";
-import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi.js";
+import {
+  getForecastWeather,
+  parseWeatherData,
+} from "../../utils/weatherApi.js";
 import "./App.css";
 import "../ModalWithForm/ModalWithForm.css";
 
@@ -27,9 +30,13 @@ function App() {
   };
 
   useEffect(() => {
-    getForecastWeather().then((data) => {
-      setTemp(parseWeatherData(data));
-    });
+    getForecastWeather()
+      .then((data) => {
+        setTemp(parseWeatherData(data));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
   // console.log(temp)
 
@@ -39,7 +46,11 @@ function App() {
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
-        <ModalWithForm title="New Garmnet" onClose={handleCloseModal}>
+        <ModalWithForm
+          title="New Garmnet"
+          buttonText="Add garment"
+          onClose={handleCloseModal}
+        >
           <label className="form__label">Name</label>
           <input
             className="form__input"
