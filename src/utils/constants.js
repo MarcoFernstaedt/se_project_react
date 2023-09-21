@@ -1,32 +1,32 @@
 const weatherConditions = [
   {
     weather: "sunny",
-    url: require("../../images/day-weather/sunny.svg").default,
+    url: require("../images/day-weather/sunny.svg").default,
     day: true,
   },
   {
     weather: "cloudy",
-    url: require("../../images/day-weather/cloudy.svg").default,
+    url: require("../images/day-weather/cloudy.svg").default,
     day: true,
   },
   {
     weather: "rain",
-    url: require("../../images/day-weather/rain.svg").default,
+    url: require("../images/day-weather/rain.svg").default,
     day: true,
   },
   {
     weather: "storm",
-    url: require("../../images/day-weather/storm.svg").default,
+    url: require("../images/day-weather/storm.svg").default,
     day: true,
   },
   {
     weather: "snow",
-    url: require("../../images/day-weather/snow.svg").default,
+    url: require("../images/day-weather/snow.svg").default,
     day: true,
   },
   {
     weather: "fog",
-    url: require("../../images/day-weather/fog.svg").default,
+    url: require("../images/day-weather/fog.svg").default,
     day: true,
   },
 ];
