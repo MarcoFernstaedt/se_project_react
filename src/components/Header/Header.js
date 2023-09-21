@@ -1,3 +1,5 @@
+import logo from '../../images/logo.svg'
+import avatarImage from '../../images/avatar.svg';
 import "./Header.css";
 
 const Header = ({onCreateModal}) => {
@@ -6,7 +8,7 @@ const Header = ({onCreateModal}) => {
   return (
     <header className="header">
       <div className="header__logo-icon">
-        <img src={require('../../images/logo.svg').default} />
+        <img src={logo} />
         <div>{currentDate}</div>
       </div>
       <div className="header__avatar-icon">
@@ -14,7 +16,7 @@ const Header = ({onCreateModal}) => {
           <button type="text" onClick={onCreateModal} >+ Add clothes</button>
         </div>
         <div>Terrence Tegegne</div>
-        <img src={require("../../images/avatar.svg").default} alt="avatar logo" />
+        <img src={avatarImage} alt="avatar logo" />
       </div>
     </header>
   );
