@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     height: 80px;
+    width: 1350px;
 }
 
 .weather__info {

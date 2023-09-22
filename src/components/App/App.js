@@ -51,53 +51,63 @@ function App() {
           buttonText="Add garment"
           onClose={handleCloseModal}
         >
-          <label className="form__label">Name</label>
+          <label className="modal__label">Name</label>
+
           <input
-            className="form__input"
+            className="modal__input modal__input_type_text"
             type="text"
             name="name"
             minLength="1"
-            maxLength="36"
+            maxLength="30"
             placeholder="Name"
+            id="name"
           />
-          <label className="form__label">Image</label>
+          <label className="modal__label">Image</label>
           <input
-            className="form__input"
+            className="modal__input modal__input_type_text"
             type="url"
             name="link"
+            minLength="1"
+            id="link"
             placeholder="Image URL"
           />
-          <p>Select the weather type:</p>
-          <div class='form__input-container-radio'>
-            <div>
+          <label className="modal__label">Select the weather type:</label>
+          <div>
+            <div className="modal__radio-container">
               <input
-                className="form__input-radio"
+                className="modal__input_radio"
                 type="radio"
-                id="hot"
+                name="weatherType"
+                id="Hot"
                 value="hot"
-                name="weather"
               />
-              <label className="form__label-radio">Hot</label>
+              <label className="modal__label_radio" htmlFor="Hot">
+                Hot
+              </label>
             </div>
-            <div>
+            <div className="modal__radio-container">
               <input
-                className="form__input-radio"
+                className="modal__input_radio"
                 type="radio"
-                id="warm"
+                name="weatherType"
+                id="Warm"
                 value="warm"
-                name="weather"
               />
-              <label className="form__label-radio">Warm</label>
+              <label className="modal__label_radio" htmlFor="Warm">
+                Warm
+              </label>
             </div>
-            <div>
+            <div className="modal__radio-container">
               <input
-                className="form__input-radio"
+                className=" modal__input_radio"
                 type="radio"
-                id="cold"
+                name="weatherType"
+                id="Cold"
                 value="cold"
-                name="weather"
               />
-              <label className="form__label-radio">Cold</label>
+              <label className=" modal__label_radio" htmlFor="Cold">
+                Cold
+              </label>
             </div>
           </div>
         </ModalWithForm>
