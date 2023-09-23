@@ -72,7 +72,7 @@ const defaultClothingItems = [
 
 const apiKey = "7fdcb46da96fb444e3ed010cf264fd9e";
 
-const latitude = 44.34;
-const longitude = 10.99;
+const latitude = 32.222607;
+const longitude = -110.974709;
 
 export { weatherConditions, defaultClothingItems, apiKey, latitude, longitude };

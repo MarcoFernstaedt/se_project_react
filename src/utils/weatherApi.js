@@ -22,6 +22,11 @@ const parseWeatherData = (data) => {
   return Math.ceil(temp);
 };
 
+const parseCityData = (data) => {
+  const city = data && data.name;
+  return city;
+}
+
 const getWeatherType = (weatherTemp) => {
   if (weatherTemp >= 86) {
     return "hot";
@@ -41,4 +46,5 @@ export {
   parseWeatherData,
   getForecastWeather,
   findWeatherOption,
+  parseCityData,
 };
