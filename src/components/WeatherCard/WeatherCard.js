@@ -11,8 +11,12 @@ const WeatherCard = ({ day, weather, weatherTemp }) => {
 
   return (
     <div className="weather">
-      <p className="weather__info">{weatherTemp}</p>
-      <img className="weather__image" src={imageSrcUrl} alt={weatherOption[0].weather} />
+      <p className="weather__info">{weatherTemp}°F</p>
+      <img
+        className="weather__image"
+        src={imageSrcUrl}
+        alt={weatherOption[0].weather}
+      />
     </div>
   );
 };

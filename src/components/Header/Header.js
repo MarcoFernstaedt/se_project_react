@@ -17,7 +17,7 @@ const Header = ({ onCreateModal, weatherCity }) => {
         </div>
       </div>
       <div className="header__button-avatar">
-        <button type="click" onClick={onCreateModal} className="header__button">
+        <button type="button" onClick={onCreateModal} className="header__button">
           + Add Clothes
         </button>
         <p className="header__username">Terrence Tegegne</p>
