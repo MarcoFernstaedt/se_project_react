@@ -5,6 +5,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-top: 32px;
   padding-bottom: 28px;
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 20px;
