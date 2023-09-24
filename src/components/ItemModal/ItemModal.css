@@ -22,22 +22,15 @@
   border-radius: 20px;
 }
 
-.modal__close:hover {
-  cursor: pointer;
-}
-
-.modal__close-preview {
+.modal__close {
   position: absolute;
-  top: 23px;
-  right: 23px;
-  width: 16px;
-  height: 16px;
+  background-color: transparent;
   background-size: 16px;
-  background-image: url(../../images//close-icon.svg);
+  background-image: url(../../images/close-icon.svg);
   border: none;
 }
 
-.modal__close-preview:hover {
+.modal__close:hover {
   cursor: pointer;
 }
 
@@ -52,20 +45,13 @@
 
 .modal__description-wrap {
   display: flex;
-  flex-direction: space-between;
-  justify-content: space-between;
-  justify-items: auto;
-}
-
-.modal__description {
-  margin: 8px 0 0 32px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 32px 32px;
 }
 
 @media screen and (max-width: 560px) {
-  .modal__container {
-    max-width: 250px;
-  }
-  .modal__image {
+  .modal__content {
     max-width: 250px;
   }
 }
