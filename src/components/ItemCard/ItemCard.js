@@ -2,11 +2,11 @@ import "./ItemCard.css";
 
 const ItemCard = ({ item, onSelectCard }) => {
   return (
-    <div className="card__item">
-      <div className="card__name">{item.name}</div>
+    <div className="itemCard">
+      <h3 className="itemCard__name">{item.name}</h3>
       <img
         src={item.link}
-        className="card__image"
+        className="itemCard__image"
         onClick={() => onSelectCard(item)}
       />
     </div>

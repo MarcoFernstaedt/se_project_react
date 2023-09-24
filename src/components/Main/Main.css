@@ -3,7 +3,7 @@
     padding-top: 34px;
 }
 
-.card__items {
+.main__card-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

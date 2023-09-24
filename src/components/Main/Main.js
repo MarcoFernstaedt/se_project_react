@@ -15,8 +15,8 @@ const Main = ({ weatherTemp, onSelectCard }) => {
     <main className="main">
       <WeatherCard day={true} weather={"cloudy"} weatherTemp={weatherTemp} />
       <section className="main__content">
-        <p className="main__title" >Today is {weatherTemp}°F / You may want to wear:</p>
-        <div className="card__items">
+        <h3 className="main__title" >Today is {weatherTemp}°F / You may want to wear:</h3>
+        <div className="main__card-wrapper">
           {filteredCards.map((item) => (
             <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
           ))}
