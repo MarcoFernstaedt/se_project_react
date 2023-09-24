@@ -1,6 +1,8 @@
 .card__item {
+    position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .card__image {
@@ -14,5 +16,12 @@
 }
 
 .card__name {
+    position: absolute;
+    top: 16px;
+    height: 24px;
+    width: 73px;
+    padding: 2px 12px;
+    border-radius: 4px;
     text-align: center;
+    background-color: #fff;
 }
