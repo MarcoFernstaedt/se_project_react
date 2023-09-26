@@ -16,11 +16,11 @@ const Main = ({ weatherTemp, onSelectCard }) => {
       <WeatherCard day={true} weather={"cloudy"} weatherTemp={weatherTemp} />
       <section className="main__content">
         <h3 className="main__title" >Today is {weatherTemp}°F / You may want to wear:</h3>
-        <div className="main__card-wrapper">
-          {filteredCards.map((item) => (
+        <ul className="main__card-wrapper">
+          {filteredCards.map((item) => {
             <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
-          ))}
-        </div>
+          })}
+        </ul>
       </section>
     </main>
   );
