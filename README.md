@@ -4,8 +4,8 @@
 
 - Description and Functionality
 - Technologies Used
-- GitHub
 - Figma
+- GitHub
 
 **Description and Functionality**
 
