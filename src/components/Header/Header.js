@@ -1,5 +1,6 @@
 import logo from "../../images/logo.svg";
 import avatarImage from "../../images/avatar.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 
 const Header = ({ onCreateModal, weatherCity }) => {
@@ -16,6 +17,7 @@ const Header = ({ onCreateModal, weatherCity }) => {
           {currentDate}, {weatherCity}
         </div>
       </div>
+      <ToggleSwitch />
       <div className="header__button-avatar">
         <button type="button" onClick={onCreateModal} className="header__button">
           + Add Clothes
