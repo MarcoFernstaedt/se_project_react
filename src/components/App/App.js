@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { useEffect, useState } from "react";
+import {CurrentTemperatureUnitContext} from '../../contexts/CurrentTemperatureUnitContext';
 import {
   getForecastWeather,
   parseCityData,
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <div className="App">
+      <CurrentTemperatureUnitContext.Provider value={currentTemperatureUnit} >
       <Header onCreateModal={handleCreateModal} weatherCity={city} />
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
@@ -127,6 +129,7 @@ function App() {
       {activeModal === "preview" && (
         <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
       )}
+    </CurrentTemperatureUnitContext.Provider>
     </div>
   );
 }
