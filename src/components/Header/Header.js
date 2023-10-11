@@ -17,8 +17,8 @@ const Header = ({ onCreateModal, weatherCity }) => {
           {currentDate}, {weatherCity}
         </div>
       </div>
-      <ToggleSwitch />
       <div className="header__button-avatar">
+        <ToggleSwitch />
         <button type="button" onClick={onCreateModal} className="header__button">
           + Add Clothes
         </button>

@@ -18,7 +18,7 @@ const Main = ({ weatherTemp, onSelectCard }) => {
         <h3 className="main__title" >Today is {weatherTemp}°F / You may want to wear:</h3>
         <ul className="main__card-wrapper">
           {filteredCards.map((item) => {
-            <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
+            return <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />            
           })}
         </ul>
       </section>

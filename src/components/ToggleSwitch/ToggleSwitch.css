@@ -1,4 +1,6 @@
 .switch {
+    border: 1px solid white;
+    margin-right: 25px;
     display: flex;
     position: relative;
     height: 28px;
