@@ -18,7 +18,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [city, setCity] = useState('');
-  const [currentTemperatureUnit, CurrentTemperatureUnit] = useState('F');
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F');
 
   const handleCreateModal = () => {
     setActiveModal("create");
