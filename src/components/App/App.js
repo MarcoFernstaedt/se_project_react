@@ -33,6 +33,10 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleToggleSwitchChange = () => {
+    setCurrentTemperatureUnit(!currentTemperatureUnit)
+  };
+
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
@@ -55,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <CurrentTemperatureUnitContext.Provider value={currentTemperatureUnit} >
+      <CurrentTemperatureUnitContext.Provider value={{currentTemperatureUnit, handleToggleSwitchChange}} >
       <Header onCreateModal={handleCreateModal} weatherCity={city} />
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
