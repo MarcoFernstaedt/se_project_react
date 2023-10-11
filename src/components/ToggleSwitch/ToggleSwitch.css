@@ -1,12 +1,37 @@
 .switch {
     display: flex;
     position: relative;
+    height: 28px;
+    width: 56px;
+    font-family: 'Cabinet Grotesk' sans-serif;
+    line-height: 17.36px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 25px;
 }
 
-.switch__box {
-    border-radius: 25px;
-    border: 2px solid #000;
-    width: 50px;
-    height: 30px;
-    appearance: none;
+input[type='checkbox'] {
+    display: none;
 }
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    width: 28px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;;
+    background-color: #000; 
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+}
+
+input[type='checkbox']:checked + .slider {
+    transform: translateX(100%);
+}
+
