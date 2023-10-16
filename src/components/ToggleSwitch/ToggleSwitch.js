@@ -15,11 +15,11 @@ const ToggleSwitch = () => {
         className="switch__checkbox"
         onChange={handleToggleSwitchChange}
       />
-      <p className="switch__temp-unit-f">F</p>
-      <p className="switch__temp-unit-c">C</p>
       <span
         className='switch__slider'>
       </span>
+      <p className={`switch__temp-unit-f ${currentTemperatureUnit === 'F' ? 'active' : ''}`}>F</p>
+      <p className={`switch__temp-unit-c ${currentTemperatureUnit === 'C' ? 'active' : ''}`}>C</p>
     </label>
   );
 };
