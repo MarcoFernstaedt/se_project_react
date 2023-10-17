@@ -18,8 +18,8 @@ const ToggleSwitch = () => {
       <span
         className='switch__slider'>
       </span>
-      <p className={`switch__temp-unit-f ${currentTemperatureUnit === 'F' ? 'active' : ''}`}>F</p>
-      <p className={`switch__temp-unit-c ${currentTemperatureUnit === 'C' ? 'active' : ''}`}>C</p>
+      <p className={`switch__temp-f ${currentTemperatureUnit === 'F' && 'switch__active'}`}>F</p>
+      <p className={`switch__temp-c ${currentTemperatureUnit === 'C' && 'switch__active'}`}>C</p>
     </label>
   );
 };
