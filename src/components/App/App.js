@@ -68,7 +68,7 @@ function App() {
       >
         <Header onCreateModal={handleCreateModal} weatherCity={city} />
         <Switch>
-          <Route exactpath='/'>
+          <Route exact path='/'>
             <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
           </Route>
           <Route path='/profile'>
