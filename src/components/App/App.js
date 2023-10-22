@@ -42,6 +42,10 @@ function App() {
   };
 
   useEffect(() => {
+    navigator('/')
+  }, [])
+
+  useEffect(() => {
     getForecastWeather()
       .then((data) => {
         setTemp(parseWeatherData(data));
