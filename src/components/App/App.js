@@ -41,9 +41,9 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
-  useEffect(() => {
-    navigator('/')
-  }, [])
+  // useEffect(() => {
+  //   navigator('/')
+  // }, [])
 
   useEffect(() => {
     getForecastWeather()
@@ -54,7 +54,7 @@ function App() {
         console.error(err);
       });
   }, []);
-
+ 
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
