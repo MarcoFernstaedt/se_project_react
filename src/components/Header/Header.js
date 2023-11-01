@@ -29,8 +29,8 @@ const Header = ({ onCreateModal, weatherCity }) => {
         >
           + Add Clothes
         </button>
-        <Link to="/profile">
-          <p className="header__username">Terrence Tegegne</p>
+        <Link to="/profile" className="header__username">
+          <p>Terrence Tegegne</p>
         </Link>
         <img className="header__avatar" src={avatarImage} alt="avatar" />
       </div>
