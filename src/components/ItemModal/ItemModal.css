@@ -45,9 +45,31 @@
 
 .modal__description-wrap {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 12px;
   padding: 28px 32px 32px;
+}
+
+.modal__button-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.modal__delete-button {
+  border: none;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: 'CabinetGrotesk' sans-serif;
+  color: #FF4000;
+  opacity: 1;
+}
+
+.modal__delete-button:hover {
+  opacity: .5;
+  cursor: pointer;
+  color: green;
 }
 
 @media screen and (max-width: 560px) {

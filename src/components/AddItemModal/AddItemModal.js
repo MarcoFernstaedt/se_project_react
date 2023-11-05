@@ -1,33 +1,34 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
+import './AddItemModal.css';
 
 const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
-  const [name, setName] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [weatherType, setWeatherType] = useState('');
+  const [name, setName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [weatherType, setWeatherType] = useState("");
 
   const hanldeSetName = (e) => {
     setName(e.target.value);
-  }
+  };
 
   const handleSetImageUrl = (e) => {
-    setImageUrl(e.target.value)
-  }
+    setImageUrl(e.target.value);
+  };
 
   const handleSetWeatherType = (e) => {
     setWeatherType(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({name, imageUrl, weatherType});
-  }
+    onAddItem({ name, imageUrl, weatherType });
+    handleCloseModal()
+  };
 
   return (
     <ModalWithForm
       title="New Garmnet"
-      buttonText="Add garment"
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
@@ -95,6 +96,11 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
             Cold
           </label>
         </div>
+      </div>
+      <div className="modal__button-container">
+        <button className="modal__submit-button" type="submit">
+          Add garment
+        </button>
       </div>
     </ModalWithForm>
   );

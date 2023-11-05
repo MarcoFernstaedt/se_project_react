@@ -4,6 +4,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
+import ModalWithConfirmation from "../ModalWithConfirmation/ModalWithConfirmation";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { Route, Switch } from "react-router-dom";
@@ -44,6 +45,10 @@ const App = () => {
 
   const handleOnAddItemSubmit = (newClothingItem) => {
     setClothingItems([newClothingItem, ...defaultClothingItems]);
+  };
+
+  const openConfirmationModal = () => {
+    setActiveModal("delete");
   };
 
   useEffect(() => {
@@ -93,7 +98,18 @@ const App = () => {
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
+            openModal={openConfirmationModal}
+          />
+        )}
+        {activeModal === "delete" && (
+          <ModalWithConfirmation
+            isOpen={activeModal === "delete"}
+            onClose={handleCloseModal}
+            onSubmit={() => console.log("deleted")}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>
