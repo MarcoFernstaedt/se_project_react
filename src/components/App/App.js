@@ -51,6 +51,10 @@ const App = () => {
     setActiveModal("delete");
   };
 
+  const handleCardDelete = (card) => {
+    console.log('deleted card')
+  }
+
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
@@ -108,7 +112,7 @@ const App = () => {
           <ModalWithConfirmation
             isOpen={activeModal === "delete"}
             onClose={handleCloseModal}
-            onSubmit={() => console.log("deleted")}
+            onSubmit={handleCardDelete}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

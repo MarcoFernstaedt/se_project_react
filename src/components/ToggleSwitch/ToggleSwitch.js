@@ -8,7 +8,7 @@ const ToggleSwitch = () => {
   );
 
   return (
-    <label className="switch" for="switch">
+    <label className="switch" >
       <input
         id="switch"
         type="checkbox"

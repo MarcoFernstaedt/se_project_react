@@ -2,13 +2,19 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./ModalWithConfirmation.css";
 
 const ModalWithConfirmation = ({ onClose, isOpen, onSubmit }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit();
+    onClose();
+  }
+  
   return (
     <ModalWithForm
       title="Confirm Deletion"
       buttonText="Delete"
       onClose={onClose}
       isOpen={isOpen}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit }
       className="modal"
     >
       <p className="modal__text">Are you sure you want to delete this item?</p>
