@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { Route, Switch } from "react-router-dom";
 import { defaultClothingItems } from "../../utils/constants";
+import { getItems } from "../../utils/api";
 import {
   getForecastWeather,
   parseCityData,
@@ -52,7 +53,8 @@ const App = () => {
   };
 
   const handleCardDelete = (card) => {
-    console.log('deleted card')
+    const data = getItems();
+    console.log(data)
   }
 
   useEffect(() => {
