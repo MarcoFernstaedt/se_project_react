@@ -44,8 +44,19 @@ const App = () => {
       : setCurrentTemperatureUnit("F");
   };
 
-  const handleOnAddItemSubmit = (newClothingItem) => {
-    setClothingItems([newClothingItem, ...defaultClothingItems]);
+  const handleOnAddItemSubmit = ({name, imageUrl, weatherType}) => {
+    const newItem = {
+      name,
+      imageUrl,
+      weatherType,
+    }
+    
+    postCard(newItem)
+      .then(() => {
+        getCards()
+      }).then((data) => {
+        setClothingItems(data);
+      })
   };
 
   const openConfirmationModal = () => {
@@ -53,7 +64,16 @@ const App = () => {
   };
 
   const handleCardDelete = () => {
-    deleteCard(selectedCard._id);
+    deleteCard(selectedCard._id)
+      .then(() => {
+        getCards();
+      })
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   useEffect(() => {
@@ -94,13 +114,17 @@ const App = () => {
         <Header onCreateModal={handleCreateModal} weatherCity={city} />
         <Switch>
           <Route exact path="/">
-            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+            <Main
+              weatherTemp={temp}
+              onSelectCard={handleSelectedCard}
+              clothingItems={clothingItems}
+            />
           </Route>
           <Route path="/profile">
             <Profile
               onSelectCard={handleSelectedCard}
               handleOpenModal={handleCreateModal}
-              clothingItems={defaultClothingItems}
+              clothingItems={clothingItems}
             />
           </Route>
         </Switch>
