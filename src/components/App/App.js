@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { Route, Switch } from "react-router-dom";
 import { defaultClothingItems } from "../../utils/constants";
-import { getItems } from "../../utils/api";
+import { getCards, postCard, deleteCard } from "../../utils/api";
 import {
   getForecastWeather,
   parseCityData,
@@ -52,10 +52,9 @@ const App = () => {
     setActiveModal("delete");
   };
 
-  const handleCardDelete = (card) => {
-    const data = getItems();
-    console.log(data)
-  }
+  const handleCardDelete = () => {
+    deleteCard(selectedCard._id);
+  };
 
   useEffect(() => {
     getForecastWeather()
@@ -71,6 +70,16 @@ const App = () => {
     getForecastWeather()
       .then((data) => {
         setCity(parseCityData(data));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    getCards()
+      .then((cards) => {
+        setClothingItems(cards);
       })
       .catch((err) => {
         console.error(err);
