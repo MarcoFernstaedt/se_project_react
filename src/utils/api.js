@@ -14,6 +14,9 @@ const getCards = () => {
 const postCard = ({name, imageUrl, weather}) => {
   return fetch(`${baseUrl}/items`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
       name: name,
       imageUrl: imageUrl,
@@ -27,7 +30,5 @@ const deleteCard = (id) => {
     method: 'DELETE',
   }).then(processServerResponce);
 };
-
-// PUT PATCH POST header reqirment Content-Type: application/json
 
 export { getCards, postCard, deleteCard };

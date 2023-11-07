@@ -6,7 +6,7 @@ import './AddItemModal.css';
 const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [weatherType, setWeatherType] = useState("");
+  const [weather, setWeather] = useState("");
 
   const hanldeSetName = (e) => {
     setName(e.target.value);
@@ -16,13 +16,13 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
     setImageUrl(e.target.value);
   };
 
-  const handleSetWeatherType = (e) => {
-    setWeatherType(e.target.value);
+  const handlesetWeather = (e) => {
+    setWeather(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weatherType });
+    onAddItem({ name, imageUrl, weather });
     handleCloseModal()
   };
 
@@ -61,10 +61,10 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
           <input
             className="modal__input_radio"
             type="radio"
-            name="weatherType"
+            name="weather"
             id="Hot"
             value="hot"
-            onChange={handleSetWeatherType}
+            onChange={handlesetWeather}
           />
           <label className="modal__label_radio" htmlFor="Hot">
             Hot
@@ -74,10 +74,10 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
           <input
             className="modal__input_radio"
             type="radio"
-            name="weatherType"
+            name="weather"
             id="Warm"
             value="warm"
-            onChange={handleSetWeatherType}
+            onChange={handlesetWeather}
           />
           <label className="modal__label_radio" htmlFor="Warm">
             Warm
@@ -87,10 +87,10 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
           <input
             className=" modal__input_radio"
             type="radio"
-            name="weatherType"
+            name="weather"
             id="Cold"
             value="cold"
-            onChange={handleSetWeatherType}
+            onChange={handlesetWeather}
           />
           <label className=" modal__label_radio" htmlFor="Cold">
             Cold

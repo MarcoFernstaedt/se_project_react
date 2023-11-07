@@ -8,7 +8,6 @@ import ModalWithConfirmation from "../ModalWithConfirmation/ModalWithConfirmatio
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { Route, Switch } from "react-router-dom";
-import { defaultClothingItems } from "../../utils/constants";
 import { getCards, postCard, deleteCard } from "../../utils/api";
 import {
   getForecastWeather,
@@ -44,19 +43,18 @@ const App = () => {
       : setCurrentTemperatureUnit("F");
   };
 
-  const handleOnAddItemSubmit = ({name, imageUrl, weatherType}) => {
+  const handleOnAddItemSubmit = ({name, imageUrl, weather}) => {
     const newItem = {
       name,
       imageUrl,
-      weatherType,
+      weather,
     }
     
     postCard(newItem)
-      .then(() => {
-        getCards()
-      }).then((data) => {
-        setClothingItems(data);
+      .catch((err) => {
+        console.error(err);
       })
+    setClothingItems([newItem, ...clothingItems])
   };
 
   const openConfirmationModal = () => {
