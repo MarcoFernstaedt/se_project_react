@@ -8,6 +8,7 @@ const ItemCard = ({ key, item, onSelectCard }) => {
         src={item.imageUrl}
         className="itemCard__image"
         onClick={() => onSelectCard(item)}
+        alt={item.name}
       />
     </li>
   );
