@@ -26,7 +26,7 @@ const postCard = ({name, imageUrl, weather}) => {
 }
 
 const deleteCard = (id) => {
-  return fetch(`${baseUrl}/items/:${id}`, {
+  return fetch(`${baseUrl}/items/${id}`, {
     method: 'DELETE',
   }).then(processServerResponce);
 };

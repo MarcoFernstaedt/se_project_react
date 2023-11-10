@@ -26,7 +26,6 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems}) => {
           {filteredCards.map((item) => {
             return (
               <ItemCard
-                key={item._id}
                 item={item}
                 onSelectCard={onSelectCard}
               />

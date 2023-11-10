@@ -43,18 +43,20 @@ const App = () => {
       : setCurrentTemperatureUnit("F");
   };
 
-  const handleOnAddItemSubmit = ({name, imageUrl, weather}) => {
+  const handleOnAddItemSubmit = ({ name, imageUrl, weather }) => {
     const newItem = {
       name,
       imageUrl,
       weather,
-    }
-    
+    };
+
     postCard(newItem)
+      .then(() => {
+        setClothingItems([newItem, ...clothingItems]);
+      })
       .catch((err) => {
         console.error(err);
-      })
-    setClothingItems([newItem, ...clothingItems])
+      });
   };
 
   const openConfirmationModal = () => {
@@ -64,10 +66,10 @@ const App = () => {
   const handleCardDelete = () => {
     deleteCard(selectedCard._id)
       .then(() => {
-        getCards();
-      })
-      .then((data) => {
-        setClothingItems(data);
+        const updatedClothing = clothingItems.filter((item) => {
+          return item._id !== selectedCard._id;
+        })
+        setClothingItems(updatedClothing);
       })
       .catch((err) => {
         console.error(err);
