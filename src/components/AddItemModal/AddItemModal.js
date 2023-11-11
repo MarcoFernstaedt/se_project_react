@@ -8,9 +8,8 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values)
-    // onAddItem({ name, imageUrl, weather });
-    // handleCloseModal()
+    onAddItem(values);
+    handleCloseModal()
   };
 
   return (
