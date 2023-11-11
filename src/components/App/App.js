@@ -53,6 +53,7 @@ const App = () => {
     postCard(newItem)
       .then(() => {
         setClothingItems([newItem, ...clothingItems]);
+        setActiveModal("");
       })
       .catch((err) => {
         console.error(err);
@@ -68,7 +69,7 @@ const App = () => {
       .then(() => {
         const updatedClothing = clothingItems.filter((item) => {
           return item._id !== selectedCard._id;
-        })
+        });
         setClothingItems(updatedClothing);
       })
       .catch((err) => {

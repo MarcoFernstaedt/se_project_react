@@ -9,7 +9,6 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem(values);
-    handleCloseModal()
   };
 
   return (
@@ -25,7 +24,7 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
         className="modal__input modal__input_type_text"
         type="text"
         name="name"
-        // value={values.name}
+        value={values.name || ''}
         minLength="1"
         maxLength="30"
         placeholder="Name"
@@ -37,7 +36,7 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
         className="modal__input modal__input_type_text"
         type="url"
         name="imageUrl"
-        // value={values.imageUrl}
+        value={values.imageUrl || ''}
         minLength="1"
         id="link"
         placeholder="Image URL"
