@@ -71,6 +71,7 @@ const App = () => {
           return item._id !== selectedCard._id;
         });
         setClothingItems(updatedClothing);
+        handleCloseModal();
       })
       .catch((err) => {
         console.error(err);

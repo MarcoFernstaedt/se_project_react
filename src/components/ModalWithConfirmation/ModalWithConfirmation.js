@@ -5,21 +5,22 @@ const ModalWithConfirmation = ({ onClose, isOpen, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit();
-    onClose();
-  }
-  
+  };
+
   return (
     <ModalWithForm
       title="Confirm Deletion"
       buttonText="Delete"
       onClose={onClose}
       isOpen={isOpen}
-      onSubmit={handleSubmit }
+      onSubmit={handleSubmit}
       className="modal"
     >
       <p className="modal__text">Are you sure you want to delete this item?</p>
       <div className="modal__button-wrap">
-        <button type='submit' className="confirmmodal__buttons">Delete</button>
+        <button type="submit" className="confirmmodal__buttons">
+          Delete
+        </button>
         <button
           onClick={onClose}
           className="confirmmodal__buttons"
