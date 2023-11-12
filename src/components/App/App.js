@@ -51,9 +51,9 @@ const App = () => {
     };
 
     postCard(newItem)
-      .then(() => {
-        setClothingItems([newItem, ...clothingItems]);
-        setActiveModal("");
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        handleCloseModal();
       })
       .catch((err) => {
         console.error(err);
