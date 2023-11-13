@@ -2,7 +2,7 @@ import "./ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
   return (
-    <div className="modal__preview">
+    <div className="modal modal-preview">
       <div className="modal__content">
         <button className="modal__close" onClick={onClose}></button>
         <img
