@@ -23,7 +23,7 @@ const App = () => {
   const [city, setCity] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
-  const  [isLoading, setIsLoading] = useState(0);
+  const [isLoading, setIsLoading] = useState(0);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -69,6 +69,7 @@ const App = () => {
   };
 
   const handleCardDelete = () => {
+    setIsLoading(true);
     deleteCard(selectedCard._id)
       .then(() => {
         const updatedClothing = clothingItems.filter((item) => {
@@ -79,7 +80,8 @@ const App = () => {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
@@ -140,7 +142,7 @@ const App = () => {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
             onAddItem={handleOnAddItemSubmit}
-            buttonText={!isLoading? 'Add garment' : 'Adding...'}
+            buttonText={!isLoading ? "Add garment" : "Adding..."}
           />
         )}
         {activeModal === "preview" && (
@@ -148,7 +150,7 @@ const App = () => {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             openModal={openConfirmationModal}
-            buttonText={!isLoading? 'Delete Item' : 'Deleting...'}
+            buttonText={!isLoading ? "Delete Item" : "Deleting..."}
           />
         )}
         {activeModal === "delete" && (
@@ -156,7 +158,7 @@ const App = () => {
             isOpen={activeModal === "delete"}
             onClose={handleCloseModal}
             onSubmit={handleCardDelete}
-            buttonText={!isLoading? 'Delete' : 'Deleting...'}
+            buttonText={!isLoading ? "Delete" : "Deleting..."}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
