@@ -19,6 +19,7 @@ import "./App.css";
 const App = () => {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [originalTemp, setOriginalTemp] = useState('');
   const [temp, setTemp] = useState(0);
   const [city, setCity] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -41,18 +42,20 @@ const App = () => {
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "F") {
       setCurrentTemperatureUnit("C")
-      handleTempConverstion(temp)
+      handleTempConversion(temp)
     } else {
       setCurrentTemperatureUnit("F");
-      handleTempConverstion(temp)
+      handleTempConversion(temp)
     }
   };
 
-  const handleTempConverstion = (temp) => {
+  const handleTempConversion = (temp) => {
     if (currentTemperatureUnit === 'F') {
-      setTemp(Math.floor((temp - 32) * 5/9))
+      // Convert Fahrenheit to Celsius
+      setTemp(Math.round((temp - 32) * 5/9))
     } else {
-      setTemp(Math.floor((temp + 9/5) + 32))
+      // Convert Celsius to Fahrenheit
+      setTemp(Math.round((temp * 9/5) + 32))
     }
   }
 
@@ -106,6 +109,7 @@ const App = () => {
         console.error(err);
       });
   }, []);
+  console.log(originalTemp)
 
   useEffect(() => {
     getCards()
