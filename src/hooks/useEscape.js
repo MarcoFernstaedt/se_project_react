@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export const useEscape = (closeModal) => {
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === "Escape") {
+      if (e.key.toLowerCase === "escape") {
         closeModal();
       }
     };

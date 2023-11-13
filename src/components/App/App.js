@@ -50,9 +50,9 @@ const App = () => {
 
   const handleTempConverstion = (temp) => {
     if (currentTemperatureUnit === 'F') {
-      setTemp(temp)
+      setTemp(Math.floor((temp - 32) * 5/9))
     } else {
-      setTemp((temp - 32) * 1/8)
+      setTemp(Math.floor((temp + 9/5) + 32))
     }
   }
 
@@ -100,9 +100,7 @@ const App = () => {
     getForecastWeather()
       .then((data) => {
         setCity(parseCityData(data));
-        // setTemp(parseWeatherData(data));
-        console.log(parseWeatherData(data))
-        handleTempConverstion(parseWeatherData(data))
+        setTemp(parseWeatherData(data));
       })
       .catch((err) => {
         console.error(err);
