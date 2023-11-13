@@ -61,7 +61,7 @@ const App = () => {
       .catch((err) => {
         console.error(err);
       })
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   const openConfirmationModal = () => {
