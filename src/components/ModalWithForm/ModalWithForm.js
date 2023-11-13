@@ -2,7 +2,7 @@ import "./ModalWithForm.css";
 
 const ModalWithForm = ({
   children,
-  // buttonText,
+  buttonText,
   title,
   onClose,
   modalName,

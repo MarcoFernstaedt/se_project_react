@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import './AddItemModal.css';
 import { useForm } from "../../hooks/useForm";
 
-const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
+const AddItemModal = ({ handleCloseModal, isOpen, onAddItem, buttonText }) => {
   const {values, handleChange, setValues} = useForm({});
 
   const handleSubmit = (e) => {
@@ -86,7 +86,7 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem }) => {
       </div>
       <div className="modal__button-container">
         <button className="modal__submit-button" type="submit">
-          Add garment
+          {buttonText}
         </button>
       </div>
     </ModalWithForm>

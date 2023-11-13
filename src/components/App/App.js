@@ -23,6 +23,7 @@ const App = () => {
   const [city, setCity] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const  [isLoading, setIsLoading] = useState(0);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -50,6 +51,8 @@ const App = () => {
       weather,
     };
 
+    setIsLoading(true);
+
     postCard(newItem)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
@@ -57,7 +60,8 @@ const App = () => {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(setIsLoading(false));
   };
 
   const openConfirmationModal = () => {
@@ -152,6 +156,7 @@ const App = () => {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
             onAddItem={handleOnAddItemSubmit}
+            buttonText={!isLoading? 'Add garment' : 'Adding...'}
           />
         )}
         {activeModal === "preview" && (
@@ -159,6 +164,7 @@ const App = () => {
             selectedCard={selectedCard}
             onClose={handleCloseModal}
             openModal={openConfirmationModal}
+            buttonText={!isLoading? 'Delete Item' : 'Deleting...'}
           />
         )}
         {activeModal === "delete" && (
@@ -166,6 +172,7 @@ const App = () => {
             isOpen={activeModal === "delete"}
             onClose={handleCloseModal}
             onSubmit={handleCardDelete}
+            buttonText={!isLoading? 'Delete' : 'Deleting...'}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
