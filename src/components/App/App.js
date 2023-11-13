@@ -87,23 +87,14 @@ const App = () => {
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
+        setCity(parseCityData(data));
         setTemp(parseWeatherData(data));
       })
       .catch((err) => {
         console.error(err);
       });
   }, []);
-
-  useEffect(() => {
-    getForecastWeather()
-      .then((data) => {
-        setCity(parseCityData(data));
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
+  
   useEffect(() => {
     getCards()
       .then((cards) => {
