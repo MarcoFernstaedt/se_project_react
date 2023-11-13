@@ -1,6 +1,10 @@
+import { useEscape } from "../../hooks/useEscape";
 import "./ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
+
+  useEscape(onClose)
+
   return (
     <div className="modal modal-preview">
       <div className="modal__content">
