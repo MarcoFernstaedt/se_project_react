@@ -10,6 +10,9 @@ const ModalWithForm = ({
   isOpen,
   onSubmit,
 }) => {
+
+  useEscape(onClose)
+
   return (
     <div className={`modal modal_type_${modalName}`}>
       <div className="modal__content">
