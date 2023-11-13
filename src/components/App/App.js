@@ -39,10 +39,22 @@ const App = () => {
   };
 
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === "F"
-      ? setCurrentTemperatureUnit("C")
-      : setCurrentTemperatureUnit("F");
+    if (currentTemperatureUnit === "F") {
+      setCurrentTemperatureUnit("C")
+      handleTempConverstion(temp)
+    } else {
+      setCurrentTemperatureUnit("F");
+      handleTempConverstion(temp)
+    }
   };
+
+  const handleTempConverstion = (temp) => {
+    if (currentTemperatureUnit === 'F') {
+      setTemp(temp)
+    } else {
+      setTemp((temp - 32) * 1/8)
+    }
+  }
 
   const handleOnAddItemSubmit = ({ name, imageUrl, weather }) => {
     const newItem = {
@@ -88,13 +100,15 @@ const App = () => {
     getForecastWeather()
       .then((data) => {
         setCity(parseCityData(data));
-        setTemp(parseWeatherData(data));
+        // setTemp(parseWeatherData(data));
+        console.log(parseWeatherData(data))
+        handleTempConverstion(parseWeatherData(data))
       })
       .catch((err) => {
         console.error(err);
       });
   }, []);
-  
+
   useEffect(() => {
     getCards()
       .then((cards) => {
