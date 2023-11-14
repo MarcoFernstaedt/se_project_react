@@ -39,4 +39,4 @@ const deleteCard = (id) => {
   return request(`${baseUrl}/items/${id}`, deleteOpiions);
 };
 
-export { getCards, postCard, deleteCard };
+export { getCards, postCard, deleteCard, request };
