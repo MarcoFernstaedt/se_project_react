@@ -6,6 +6,7 @@
 - Technologies Used
 - Figma
 - GitHub
+- Future Features
 
 **Description and Functionality**
 
@@ -28,3 +29,9 @@ The idea of the application is pretty simple - we make a call to an API, which t
 **Live Site**
 
 - [https://marcofernstaedt.github.io/se_project_react/]
+
+**Future Features**
+
+- Authentacation
+- implament a server
+- Implament a Database
