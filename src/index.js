@@ -8,9 +8,9 @@ import { BrowserRouter } from 'react-router-dom'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/se_project_react/">
+    <React.HashRouter basename="/se_project_react/">
       <App />
-    </BrowserRouter>
+    </React.HashRouter>
   </React.StrictMode>
 );
 
