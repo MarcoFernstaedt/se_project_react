@@ -41,3 +41,4 @@ The idea of the application is pretty simple - we make a call to an API, which t
 - implament a server
 - Implament a Database
 - deploy t Google Cloud Provider
+- Connect music to play
