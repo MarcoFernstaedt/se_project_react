@@ -1,0 +1,50 @@
+import { request } from "./api";
+
+const baseUrl = "http://localhost:3001";
+
+const signup = async ({ name, avatar, email, password }) => {
+  try {
+    const data = await request(`${baseUrl}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, avatar, email, password }),
+    });
+    return data;
+  } catch (error) {
+    throw new Error(error.message || "Signup failed");
+  }
+};
+
+const signin = async ({ email, password }) => {
+  try {
+    const data = await request(`${baseUrl}/signin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    return data;
+  } catch (error) {
+    throw new Error(error.message || "Signin failed");
+  }
+};
+
+const checkTokenValidity = async (token) => {
+  try {
+    const data = await request(`${baseUrl}/users/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(error.message || "Token validation failed");
+  }
+};
+
+export { signup, signin, checkTokenValidity };
