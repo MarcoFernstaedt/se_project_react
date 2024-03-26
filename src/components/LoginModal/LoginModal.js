@@ -19,9 +19,9 @@ const LoginModal = ({ isOpen, onClose, onSubmit }) => {
         onSubmit={handleSubmit}
       >
         <label className="modal__label">Email</label>
-        <input type="email" value={values.email} onChange={handleChange} placeholder="Email" />
+        <input className="modal__input modal__input_type_text" type="email" value={values.email} onChange={handleChange} placeholder="Email" />
         <label className="modal__label">Password</label>
-        <input type="password" value={values.password} onChange={handleChange} placeholder="Password" />
+        <input className="modal__input modal__input_type_text" type="password" value={values.password} onChange={handleChange} placeholder="Password" />
         <button type="submit">Login</button>
       </ModalWithForm>
     );
