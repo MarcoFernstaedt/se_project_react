@@ -1,10 +1,14 @@
 import logo from "../../images/logo.svg";
-import avatarImage from "../../images/avatar.svg";
+// import avatarImage from "../../images/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-import "./Header.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import "./Header.css";
 
 const Header = ({ onCreateModal, weatherCity }) => {
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -29,10 +33,36 @@ const Header = ({ onCreateModal, weatherCity }) => {
         >
           + Add Clothes
         </button>
-        <Link to="/profile" className="header__username">
+        {isLoggedIn ? (
+          <>
+            <Link to="/profile" className="header__username">
+              <p>{currentUser.name}</p>
+            </Link>
+            {currentUser.avatar ? (
+              <img
+                className="header__avatar"
+                src={currentUser.avatar}
+                alt="avatar"
+              />
+            ) : (
+              <img
+                className="header__avatar"
+                src={currentUser.name.charAt(0)}
+                alt="avatar"
+              />
+            )}
+          </>
+        ) : (
+          <>
+            <button className='header__username' type="button">Login</button>
+            <button className='header_avatar' type="button">Register</button>
+          </>
+        )}
+
+        {/* <Link to="/profile" className="header__username">
           <p>Terrence Tegegne</p>
         </Link>
-        <img className="header__avatar" src={avatarImage} alt="avatar" />
+        <img className="header__avatar" src={avatarImage} alt="avatar" /> */}
       </div>
     </header>
   );
