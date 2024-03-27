@@ -9,6 +9,7 @@ import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import { Route, Switch } from "react-router-dom";
 import { getCards, postCard, deleteCard } from "../../utils/api";
 import { signup, signin, checkTokenValidity } from "../../utils/auth";
@@ -179,68 +180,70 @@ const App = () => {
 
   return (
     <div className="App">
-      <CurrentTemperatureUnitContext.Provider
-        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      >
-        <Header onCreateModal={handleCreateModal} weatherCity={city} />
-        <Switch>
-          <Route exact path="/">
-            <Main
-              weatherTemp={temp}
-              onSelectCard={handleSelectedCard}
-              clothingItems={clothingItems}
+      <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
+        <CurrentTemperatureUnitContext.Provider
+          value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+        >
+          <Header onCreateModal={handleCreateModal} weatherCity={city} />
+          <Switch>
+            <Route exact path="/">
+              <Main
+                weatherTemp={temp}
+                onSelectCard={handleSelectedCard}
+                clothingItems={clothingItems}
+              />
+            </Route>
+            <Route path="/profile">
+              <Profile
+                onSelectCard={handleSelectedCard}
+                handleOpenModal={handleCreateModal}
+                clothingItems={clothingItems}
+              />
+            </Route>
+          </Switch>
+          <Footer />
+          {activeModal === "create" && (
+            <AddItemModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "create"}
+              onAddItem={handleOnAddItemSubmit}
+              buttonText={!isLoading ? "Add garment" : "Adding..."}
             />
-          </Route>
-          <Route path="/profile">
-            <Profile
-              onSelectCard={handleSelectedCard}
-              handleOpenModal={handleCreateModal}
-              clothingItems={clothingItems}
+          )}
+          {activeModal === "preview" && (
+            <ItemModal
+              selectedCard={selectedCard}
+              onClose={handleCloseModal}
+              openModal={openConfirmationModal}
+              buttonText={!isLoading ? "Delete Item" : "Deleting..."}
             />
-          </Route>
-        </Switch>
-        <Footer />
-        {activeModal === "create" && (
-          <AddItemModal
-            handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "create"}
-            onAddItem={handleOnAddItemSubmit}
-            buttonText={!isLoading ? "Add garment" : "Adding..."}
-          />
-        )}
-        {activeModal === "preview" && (
-          <ItemModal
-            selectedCard={selectedCard}
-            onClose={handleCloseModal}
-            openModal={openConfirmationModal}
-            buttonText={!isLoading ? "Delete Item" : "Deleting..."}
-          />
-        )}
-        {activeModal === "delete" && (
-          <ModalWithConfirmation
-            isOpen={activeModal === "delete"}
-            onClose={handleCloseModal}
-            onSubmit={handleCardDelete}
-            buttonText={!isLoading ? "Delete" : "Deleting..."}
-          />
-        )}
-        {activeModal === "login" && (
-          <LoginModal
-            handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "login"}
-            onSubmit={handleLogin}
-            buttonText={!isLoading ? "Log In" : "Adding..."}
-          />
-        )}
-        {activeModal === "register" && (
-          <RegisterModal
-            handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "register"}
-            onSubmit={handleRegister}
-            buttonText={!isLoading ? "Register" : "Adding..."}
-          />
-        )}
-      </CurrentTemperatureUnitContext.Provider>
+          )}
+          {activeModal === "delete" && (
+            <ModalWithConfirmation
+              isOpen={activeModal === "delete"}
+              onClose={handleCloseModal}
+              onSubmit={handleCardDelete}
+              buttonText={!isLoading ? "Delete" : "Deleting..."}
+            />
+          )}
+          {activeModal === "login" && (
+            <LoginModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "login"}
+              onSubmit={handleLogin}
+              buttonText={!isLoading ? "Log In" : "Adding..."}
+            />
+          )}
+          {activeModal === "register" && (
+            <RegisterModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "register"}
+              onSubmit={handleRegister}
+              buttonText={!isLoading ? "Register" : "Adding..."}
+            />
+          )}
+        </CurrentTemperatureUnitContext.Provider>
+      </CurrentUserContext.Provider>
     </div>
   );
 };
