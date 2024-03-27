@@ -7,7 +7,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import ModalWithConfirmation from "../ModalWithConfirmation/ModalWithConfirmation";
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { Route, Switch } from "react-router-dom";
 import { getCards, postCard, deleteCard } from "../../utils/api";
@@ -29,7 +29,7 @@ const App = () => {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -87,7 +87,7 @@ const App = () => {
   const handleLogin = async ({ email, password }) => {
     try {
       const loggedInUser = await signin(email, password);
-      setUser(loggedInUser);
+      setCurrentUser(loggedInUser);
       setIsLoggedIn(true);
       localStorage.setItem("jwt", loggedInUser.token);
       handleCloseModal();
@@ -99,7 +99,7 @@ const App = () => {
   const handleRegister = async ({ name, email, password, avatar }) => {
     try {
       const newUser = await signup({ name, email, password, avatar });
-      setUser(newUser);
+      setCurrentUser(newUser);
       setIsLoggedIn(true);
       localStorage.setItem("jwt", newUser.token);
       handleCloseModal();
@@ -109,7 +109,7 @@ const App = () => {
   };
 
   const handleLogOut = () => {
-    setUser(null);
+    setCurrentUser(null);
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
   };
@@ -147,11 +147,11 @@ const App = () => {
     if (token) {
       checkTokenValidity(token)
         .then((userData) => {
-          setUser(userData);
+          setCurrentUser(userData);
         })
         .catch((error) => {
           console.error("Invalid token:", error);
-          setUser(null);
+          setCurrentUser(null);
           localStorage.removeItem("jwt");
         });
     }
