@@ -9,7 +9,7 @@ import "./Main.css";
 const Main = ({ weatherTemp, onSelectCard, clothingItems}) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const weather = getWeatherType(weatherTemp);
-
+  console.log(clothingItems)
   const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weather;
   });

@@ -22,7 +22,7 @@ const LoginModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="email"
-        value={values.email}
+        value={values.email || ''}
         onChange={handleChange}
         placeholder="Email"
       />
@@ -30,7 +30,7 @@ const LoginModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="password"
-        value={values.password}
+        value={values.password || ''}
         onChange={handleChange}
         placeholder="Password"
       />

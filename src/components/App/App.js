@@ -5,14 +5,14 @@ import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import ModalWithConfirmation from "../ModalWithConfirmation/ModalWithConfirmation";
-import LoginModal from "../LoginModal/LoginModal.js";
-import RegisterModal from "../RegisterModal/RegisterModal.js";
+// import LoginModal from "../LoginModal/LoginModal.js";
+// import RegisterModal from "../RegisterModal/RegisterModal.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+// import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import { Route, Switch } from "react-router-dom";
 import { getCards, postCard, deleteCard } from "../../utils/api";
-import { signup, signin, checkTokenValidity } from "../../utils/auth";
+// import { signup, signin, checkTokenValidity } from "../../utils/auth";
 import {
   getForecastWeather,
   parseCityData,
@@ -85,29 +85,29 @@ const App = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const handleLogin = async ({ email, password }) => {
-    try {
-      const loggedInUser = await signin(email, password);
-      setCurrentUser(loggedInUser);
-      setIsLoggedIn(true);
-      localStorage.setItem("jwt", loggedInUser.token);
-      handleCloseModal();
-    } catch (err) {
-      console.error("Login Failed: ", err);
-    }
-  };
+  // const handleLogin = async ({ email, password }) => {
+  //   try {
+  //     const loggedInUser = await signin(email, password);
+  //     setCurrentUser(loggedInUser);
+  //     setIsLoggedIn(true);
+  //     localStorage.setItem("jwt", loggedInUser.token);
+  //     handleCloseModal();
+  //   } catch (err) {
+  //     console.error("Login Failed: ", err);
+  //   }
+  // };
 
-  const handleRegister = async ({ name, email, password, avatar }) => {
-    try {
-      const newUser = await signup({ name, email, password, avatar });
-      setCurrentUser(newUser);
-      setIsLoggedIn(true);
-      localStorage.setItem("jwt", newUser.token);
-      handleCloseModal();
-    } catch (err) {
-      console.error("Registration Failure: ", err);
-    }
-  };
+  // const handleRegister = async ({ name, email, password, avatar }) => {
+  //   try {
+  //     const newUser = await signup({ name, email, password, avatar });
+  //     setCurrentUser(newUser);
+  //     setIsLoggedIn(true);
+  //     localStorage.setItem("jwt", newUser.token);
+  //     handleCloseModal();
+  //   } catch (err) {
+  //     console.error("Registration Failure: ", err);
+  //   }
+  // };
 
   const handleLogOut = () => {
     setCurrentUser(null);
@@ -144,18 +144,18 @@ const App = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      checkTokenValidity(token)
-        .then((userData) => {
-          setCurrentUser(userData);
-        })
-        .catch((error) => {
-          console.error("Invalid token:", error);
-          setCurrentUser(null);
-          localStorage.removeItem("jwt");
-        });
-    }
+    // const token = localStorage.getItem("jwt");
+    // if (token) {
+    //   checkTokenValidity(token)
+    //     .then((userData) => {
+    //       setCurrentUser(userData);
+    //     })
+    //     .catch((error) => {
+    //       console.error("Invalid token:", error);
+    //       setCurrentUser(null);
+    //       localStorage.removeItem("jwt");
+    //     });
+    // }
 
     getForecastWeather()
       .then((data) => {
@@ -180,7 +180,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
+      {/* <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}> */}
         <CurrentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
@@ -226,24 +226,24 @@ const App = () => {
               buttonText={!isLoading ? "Delete" : "Deleting..."}
             />
           )}
-          {activeModal === "login" && (
-            <LoginModal
-              handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "login"}
-              onSubmit={handleLogin}
-              buttonText={!isLoading ? "Log In" : "Adding..."}
-            />
-          )}
-          {activeModal === "register" && (
+          {/* {activeModal === "login" && (
+            // <LoginModal
+            //   handleCloseModal={handleCloseModal}
+            //   isOpen={activeModal === "login"}
+            //   onSubmit={handleLogin}
+            //   buttonText={!isLoading ? "Log In" : "Adding..."}
+            // />
+          )} */}
+          {/* {activeModal === "register" && (
             <RegisterModal
               handleCloseModal={handleCloseModal}
               isOpen={activeModal === "register"}
               onSubmit={handleRegister}
               buttonText={!isLoading ? "Register" : "Adding..."}
             />
-          )}
+          )} */}
         </CurrentTemperatureUnitContext.Provider>
-      </CurrentUserContext.Provider>
+      {/* </CurrentUserContext.Provider> */}
     </div>
   );
 };
