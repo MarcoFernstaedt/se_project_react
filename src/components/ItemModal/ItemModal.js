@@ -12,7 +12,7 @@ const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
         <img
           className="modal__image"
           src={selectedCard.imageUrl}
-          alt={`picture of a ${selectedCard.name}`}
+          alt={`${selectedCard.name}`}
         />
         <div className="modal__description-wrap">
           <div className="modal__description">
