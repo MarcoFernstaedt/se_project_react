@@ -2,8 +2,7 @@ import { useEscape } from "../../hooks/useEscape";
 import "./ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
-
-  useEscape(onClose)
+  useEscape(onClose);
 
   return (
     <div className="modal modal-preview">
@@ -20,7 +19,13 @@ const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
             <div>Weather: {selectedCard.weather}</div>
           </div>
           <div className="modal__button-wrap">
-            <button onClick={openModal} type='button' className="modal__delete-button">{buttonText}</button>
+            <button
+              onClick={openModal}
+              type="button"
+              className="modal__delete-button"
+            >
+              {buttonText}
+            </button>
           </div>
         </div>
       </div>
