@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import "./Header.css";
 
-const Header = ({ onCreateModal, weatherCity }) => {
+const Header = ({
+  onLoginModal,
+  onRegisterModal,
+  onCreateModal,
+  weatherCity,
+}) => {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   const currentDate = new Date().toLocaleString("default", {
@@ -54,8 +59,20 @@ const Header = ({ onCreateModal, weatherCity }) => {
           </>
         ) : (
           <>
-            <button className='header__username' type="button">Login</button>
-            <button className='header_avatar' type="button">Register</button>
+            <button
+              onClick={onLoginModal}
+              className="header__username"
+              type="button"
+            >
+              Login
+            </button>
+            <button
+              onClick={onRegisterModal}
+              className="header_avatar"
+              type="button"
+            >
+              Register
+            </button>
           </>
         )}
 
