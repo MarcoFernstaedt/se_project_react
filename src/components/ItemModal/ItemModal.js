@@ -2,6 +2,7 @@ import { useEscape } from "../../hooks/useEscape";
 import "./ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
+  // use userContext 
   useEscape(onClose);
 
   return (
