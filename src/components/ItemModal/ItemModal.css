@@ -61,21 +61,21 @@
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
-  font-family: 'CabinetGrotesk' sans-serif;
-  color: #FF4000;
+  font-family: "CabinetGrotesk" sans-serif;
+  color: #ff4000;
   opacity: 1;
 }
 
-.modal__delete-button_visable {
+.modal__delete-button_visible {
   display: block;
 }
 
 .modal__delete-button_hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .modal__delete-button:hover {
-  opacity: .5;
+  opacity: 0.5;
   cursor: pointer;
   color: green;
 }
