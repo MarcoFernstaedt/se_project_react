@@ -66,6 +66,14 @@
   opacity: 1;
 }
 
+.modal__delete-button_visable {
+  display: block;
+}
+
+.modal__delete-button_hidden {
+  display: none;
+}
+
 .modal__delete-button:hover {
   opacity: .5;
   cursor: pointer;
