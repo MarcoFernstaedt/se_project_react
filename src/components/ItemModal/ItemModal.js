@@ -4,7 +4,7 @@ import "./ItemModal.css";
 import { useContext } from "react";
 
 const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
-  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
   // use userContext
   useEscape(onClose);
 
