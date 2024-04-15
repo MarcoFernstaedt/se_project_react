@@ -1,7 +1,11 @@
 import ItemCard from "../ItemCard/ItemCard";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 import "./ClothingSection.css";
 
 const ClothingSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <>
       <div className="clothingsection__content">
@@ -15,11 +19,17 @@ const ClothingSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
         </button>
       </div>
       <div className="clothingsection__card-wrapper">
-        {clothingItems.map((item) => {
-          return (
-            <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
-          );
-        })}
+        {clothingItems
+          .filter((item) => item.Owner === currentUser._id)
+          .map((item) => {
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onSelectCard={onSelectCard}
+              />
+            );
+          })}
       </div>
     </>
   );
