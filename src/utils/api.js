@@ -39,4 +39,22 @@ const deleteCard = (id) => {
   return request(`${baseUrl}/items/${id}`, deleteOpiions);
 };
 
-export { getCards, postCard, deleteCard, request };
+const updateUser = ({ name, avatar }) => {
+  const token = getToken()
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  };
+
+  return request(`${baseUrl}/user/me`, options);
+};
+
+const getToken = () => {
+  return localStorage.getItem('token'); 
+}
+
+export { getCards, postCard, deleteCard, request, updateUser };
