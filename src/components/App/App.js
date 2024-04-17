@@ -249,6 +249,9 @@ const App = () => {
               buttonText={!isLoading ? "Register" : "Adding..."}
             />
           )}
+          {activeModal === 'edit' && (
+            // render EditProfileModal here
+          )}
         </CurrentTemperatureUnitContext.Provider>
       </CurrentUserContext.Provider>
     </div>
