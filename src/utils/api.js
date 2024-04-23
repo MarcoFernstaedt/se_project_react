@@ -39,8 +39,7 @@ const deleteCard = (id) => {
   return request(`${baseUrl}/items/${id}`, deleteOpiions);
 };
 
-const updateUser = ({ name, avatar }) => {
-  const token = getToken()
+const updateUser = ({ name, avatar, token }) => {
   const options = {
     method: "PATCH",
     headers: {
@@ -53,8 +52,6 @@ const updateUser = ({ name, avatar }) => {
   return request(`${baseUrl}/user/me`, options);
 };
 
-const getToken = () => {
-  return localStorage.getItem('token'); 
-}
+
 
 export { getCards, postCard, deleteCard, request, updateUser };

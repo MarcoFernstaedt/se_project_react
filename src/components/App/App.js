@@ -7,11 +7,12 @@ import ItemModal from "../ItemModal/ItemModal";
 import ModalWithConfirmation from "../ModalWithConfirmation/ModalWithConfirmation";
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import { Route, Switch } from "react-router-dom";
-import { getCards, postCard, deleteCard } from "../../utils/api";
+import { getCards, postCard, deleteCard, updateUser } from "../../utils/api";
 import { signup, signin, checkTokenValidity } from "../../utils/auth";
 import {
   getForecastWeather,
@@ -77,6 +78,32 @@ const App = () => {
     postCard(newItem)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  const getToken = () => {
+    return localStorage.getItem("token");
+  };
+
+  const handleUpdateUserSubmit = (name, avatar) => {
+    const token = getToken();
+    const newdata = {
+      name,
+      avatar,
+      token,
+    };
+
+    setIsLoading(true);
+
+    updateUser(newdata)
+      .then((data) => {
+        currentUser.name = data.name;
+        currentUser.avatar = data.avatar;
         handleCloseModal();
       })
       .catch((err) => {
@@ -249,8 +276,13 @@ const App = () => {
               buttonText={!isLoading ? "Register" : "Adding..."}
             />
           )}
-          {activeModal === 'edit' && (
-            // render EditProfileModal here
+          {activeModal === "edit" && (
+            <EditProfileModal
+              isOpen={activeModal === "edit"}
+              onClose={handleCloseModal}
+              onSubmit={handleUpdateUserSubmit}
+              buttonText={isLoading ? "updating..." : "update"}
+            />
           )}
         </CurrentTemperatureUnitContext.Provider>
       </CurrentUserContext.Provider>
