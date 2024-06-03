@@ -171,7 +171,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
+    const token = getToken();
     if (token) {
       checkTokenValidity(token)
         .then((userData) => {
@@ -229,6 +229,7 @@ const App = () => {
             </Route>
             <Route path="/profile">
               <Profile
+                handleLogOut={handleLogOut}
                 onSelectCard={handleSelectedCard}
                 handleOpenModal={handleCreateModal}
                 clothingItems={clothingItems}

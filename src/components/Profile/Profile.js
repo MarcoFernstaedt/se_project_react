@@ -3,11 +3,11 @@ import Sidebar from "../Sidebar/Sidebar";
 import ClothesSection from "../ClothingSection/ClothingSection";
 import "./Profile.css";
 
-const Profile = ({ onSelectCard, handleOpenModal, clothingItems }) => {
+const Profile = ({ onSelectCard, handleOpenModal, clothingItems, handleLogOut }) => {
   return (
     <div className="profile">
       <div className="profile__sidebar">
-        <Sidebar />
+        <Sidebar handleLogOut={handleLogOut} />
       </div>
       <section className="profile__clothessection">
         <ClothesSection
