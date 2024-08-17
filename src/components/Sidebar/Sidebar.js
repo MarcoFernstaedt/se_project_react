@@ -9,12 +9,13 @@ const Sidebar = (handleOpenEditProfileModal, handleLogOut) => {
   return (
     <>
       <div
-        onClick={handleOpenEditProfileModal}
         className="sidebar__avatar-image"
        >
         <img src={currentUser.avatar} alt="Your avatar" />
       </div>
       <div className="sidebar__profile-info" >currentUser.name</div>
+      <p onClick={handleOpenEditProfileModal}>CHange profile data</p>
+      <p onClick={handleLogOut}>Log out</p>
     </>
   );
 };
