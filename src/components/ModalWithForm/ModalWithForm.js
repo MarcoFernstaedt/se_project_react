@@ -9,6 +9,7 @@ const ModalWithForm = ({
   modalName,
   isOpen,
   onSubmit,
+  secondButton,
 }) => {
 
   useEscape(onClose)
