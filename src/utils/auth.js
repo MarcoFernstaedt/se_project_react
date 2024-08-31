@@ -4,14 +4,14 @@ const baseUrl = "http://localhost:3001";
 
 const signup = async ({ name, avatar, email, password }) => {
   try {
-    const data = await request(`${baseUrl}/signup`, {
+    const responce = await request(`${baseUrl}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, avatar, email, password }),
     });
-    return data;
+    return responce.data;
   } catch (error) {
     throw new Error(error.message || "Signup failed");
   }
