@@ -87,7 +87,7 @@ const App = () => {
   };
 
   const getToken = () => {
-    return localStorage.getItem("token");
+    return localStorage.getItem("jwt");
   };
 
   const handleUpdateUserSubmit = (name, avatar) => {
@@ -175,8 +175,14 @@ const App = () => {
     if (token) {
       checkTokenValidity(token)
         .then((userData) => {
-          setCurrentUser(userData);
-          console.log("token found");
+          const user = {
+            _id: userData._id,
+            name: userData.name,
+            avatar: userData.avatar,
+            email: userData.email,
+          };
+          setCurrentUser(user);
+          setIsLoggedIn(true);
         })
         .catch((error) => {
           console.error("Invalid token:", error);
@@ -184,7 +190,6 @@ const App = () => {
     } else {
       setCurrentUser(null);
       localStorage.removeItem("jwt");
-      console.log("no token");
     }
 
     getForecastWeather()
