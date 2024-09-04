@@ -6,7 +6,6 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(values)
     onSubmit(values);
   };
 
@@ -22,8 +21,8 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="text"
-        name='name'
-        value={values.name || ''}
+        name="name"
+        value={values.name || ""}
         onChange={handleChange}
         placeholder="Name"
       />
@@ -31,8 +30,8 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="email"
-        name='email'
-        value={values.email || ''}
+        name="email"
+        value={values.email || ""}
         onChange={handleChange}
         placeholder="Email"
       />
@@ -40,8 +39,8 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="password"
-        name='password'
-        value={values.password || ''}
+        name="password"
+        value={values.password || ""}
         onChange={handleChange}
         placeholder="Password"
       />
@@ -49,8 +48,8 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="url"
-        name='avatar'
-        value={values.avatar || ''}
+        name="avatar"
+        value={values.avatar || ""}
         onChange={handleChange}
         placeholder="Avatar Url"
       />
