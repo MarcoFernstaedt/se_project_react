@@ -34,14 +34,14 @@ const signin = async ({ email, password }) => {
 
 const checkTokenValidity = async (token) => {
   try {
-    const data = await request(`${baseUrl}/users/me`, {
+    const responce = await request(`${baseUrl}/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
-    return data;
+    return responce.data;
   } catch (error) {
     throw new Error(error.message || "Token validation failed");
   }
