@@ -114,8 +114,8 @@ const App = () => {
 
   const handleLogin = async ({ email, password }) => {
     try {
-      const loggedInUser = await signin(email, password);
-      setCurrentUser(loggedInUser);
+      const loggedInUser = await signin({ email, password });
+      setCurrentUser(loggedInUser.user);
       setIsLoggedIn(true);
       localStorage.setItem("jwt", loggedInUser.token);
       handleCloseModal();
