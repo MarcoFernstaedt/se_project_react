@@ -6,8 +6,7 @@ const LoginModal = ({ isOpen, onClose, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const [email, password] = values;
-    onSubmit({ email, password });
+    onSubmit(values);
   };
 
   return (
@@ -22,7 +21,8 @@ const LoginModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="email"
-        value={values.email || ''}
+        name="email"
+        value={values.email || ""}
         onChange={handleChange}
         placeholder="Email"
       />
@@ -30,11 +30,13 @@ const LoginModal = ({ isOpen, onClose, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="password"
-        value={values.password || ''}
+        name="password"
+        value={values.password || ""}
         onChange={handleChange}
         placeholder="Password"
       />
       <button type="submit">Login</button>
+      <button type="button">or Register</button>
     </ModalWithForm>
   );
 };
