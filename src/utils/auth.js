@@ -19,14 +19,14 @@ const signup = async ({ name, avatar, email, password }) => {
 
 const signin = async ({ email, password }) => {
   try {
-    const data = await request(`${baseUrl}/signin`, {
+    const responce = await request(`${baseUrl}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     });
-    return data;
+    return responce;
   } catch (error) {
     throw new Error(error.message || "Signin failed");
   }
