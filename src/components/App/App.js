@@ -137,9 +137,13 @@ const App = () => {
   };
 
   const handleLogOut = () => {
-    setCurrentUser(null);
+    setCurrentUser({});
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
+  };
+
+  const handleEditProfileModal = () => {
+    setActiveModal("edit");
   };
 
   const handleLoginModalOpen = () => {
@@ -234,6 +238,7 @@ const App = () => {
             </Route>
             <Route path="/profile">
               <Profile
+                handleEditProfileModal={handleEditProfileModal}
                 handleLogOut={handleLogOut}
                 onSelectCard={handleSelectedCard}
                 handleOpenModal={handleCreateModal}
