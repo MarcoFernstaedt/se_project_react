@@ -3,11 +3,20 @@ import Sidebar from "../Sidebar/Sidebar";
 import ClothesSection from "../ClothingSection/ClothingSection";
 import "./Profile.css";
 
-const Profile = ({ onSelectCard, handleOpenModal, clothingItems, handleLogOut }) => {
+const Profile = ({
+  onSelectCard,
+  handleOpenModal,
+  clothingItems,
+  handleLogOut,
+  handleEditProfileModal,
+}) => {
   return (
     <div className="profile">
       <div className="profile__sidebar">
-        <Sidebar handleLogOut={handleLogOut} />
+        <Sidebar
+          handleLogOut={handleLogOut}
+          handleEditProfileModal={handleEditProfileModal}
+        />
       </div>
       <section className="profile__clothessection">
         <ClothesSection
