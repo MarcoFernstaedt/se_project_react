@@ -40,9 +40,11 @@ const deleteCard = (id) => {
 };
 
 const updateUser = ({ name, avatar, token }) => {
+  console.log(`updateUser api name: ${name} avatar: ${avatar}`)
   const options = {
     method: "PATCH",
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
