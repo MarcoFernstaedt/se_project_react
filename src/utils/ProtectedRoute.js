@@ -1,8 +1,8 @@
-import { Navigate } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const ProtectedRoute = ({ isLoggedIn, children }) => {
-  if (isLoggedIn) {
-    return <Navigate to="/" replace />;
+  if (!isLoggedIn) {
+    return <Redirect to="/" />;
   }
 
   return children;

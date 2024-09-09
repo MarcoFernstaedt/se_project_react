@@ -12,7 +12,7 @@ import ProtectedRoute from "../../utils/ProtectedRoute.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { getCards, postCard, deleteCard, updateUser } from "../../utils/api";
 import { signup, signin, checkTokenValidity } from "../../utils/auth";
 import {
