@@ -91,7 +91,7 @@ const App = () => {
     return localStorage.getItem("jwt");
   };
 
-  const handleUpdateUserSubmit = (name, avatar) => {
+  const handleUpdateUserSubmit = ({ name, avatar }) => {
     const token = getToken();
     const newdata = {
       name,
@@ -100,11 +100,14 @@ const App = () => {
     };
 
     setIsLoading(true);
-
+    console.log(`handleUpdateUserSubmit - name: ${name} avatar: ${avatar}`)
     updateUser(newdata)
-      .then((data) => {
-        currentUser.name = data.name;
-        currentUser.avatar = data.avatar;
+      .then((res) => {
+        setCurrentUser(() => ({
+          name: res.data.name ? res.data.name : currentUser.name,
+          avatar: res.data.avatar ? res.data.avatar : currentUser.avatar,
+        }));
+
         handleCloseModal();
       })
       .catch((err) => {
@@ -299,7 +302,7 @@ const App = () => {
               isOpen={activeModal === "edit"}
               onClose={handleCloseModal}
               onSubmit={handleUpdateUserSubmit}
-              buttonText={isLoading ? "updating..." : "update"}
+              buttonText={isLoading ? "Saving..." : "Save Changes"}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>
