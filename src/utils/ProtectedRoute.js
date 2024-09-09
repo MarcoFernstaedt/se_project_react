@@ -1,11 +1,12 @@
-import { Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
-const ProtectedRoute = ({ isLoggedIn, children }) => {
-  if (!isLoggedIn) {
-    return <Redirect to="/" />;
-  }
-
-  return children;
+const ProtectedRoute = ({ isLoggedIn, render, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) => (isLoggedIn ? render(props) : <Redirect to="/" />)}
+    />
+  );
 };
 
 export default ProtectedRoute;
