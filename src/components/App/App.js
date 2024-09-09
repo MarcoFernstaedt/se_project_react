@@ -237,10 +237,11 @@ const App = () => {
                 clothingItems={clothingItems}
               />
             </Route>
-            <Route
+            <ProtectedRoute
               path="/profile"
-              element={
-                <ProtectedRoute isLoggedIn={isLoggedIn}>
+              isLoggedIn={isLoggedIn}
+              render={() => {
+                return (
                   <Profile
                     handleEditProfileModal={handleEditProfileModal}
                     handleLogOut={handleLogOut}
@@ -248,8 +249,8 @@ const App = () => {
                     handleOpenModal={handleCreateModal}
                     clothingItems={clothingItems}
                   />
-                </ProtectedRoute>
-              }
+                );
+              }}
             />
           </Switch>
           <Footer />
