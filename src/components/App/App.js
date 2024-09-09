@@ -8,6 +8,7 @@ import ModalWithConfirmation from "../ModalWithConfirmation/ModalWithConfirmatio
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
+import ProtectedRoute from "../../utils/ProtectedRoute.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
@@ -236,15 +237,20 @@ const App = () => {
                 clothingItems={clothingItems}
               />
             </Route>
-            <Route path="/profile">
-              <Profile
-                handleEditProfileModal={handleEditProfileModal}
-                handleLogOut={handleLogOut}
-                onSelectCard={handleSelectedCard}
-                handleOpenModal={handleCreateModal}
-                clothingItems={clothingItems}
-              />
-            </Route>
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
+                    handleEditProfileModal={handleEditProfileModal}
+                    handleLogOut={handleLogOut}
+                    onSelectCard={handleSelectedCard}
+                    handleOpenModal={handleCreateModal}
+                    clothingItems={clothingItems}
+                  />
+                </ProtectedRoute>
+              }
+            />
           </Switch>
           <Footer />
           {activeModal === "create" && (
