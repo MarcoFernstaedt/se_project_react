@@ -61,14 +61,14 @@ const Header = ({
           <>
             <button
               onClick={onLoginModal}
-              className="header__username"
+              className="header__button"
               type="button"
             >
               Login
             </button>
             <button
               onClick={onRegisterModal}
-              className="header_avatar"
+              className="header__button"
               type="button"
             >
               Register
