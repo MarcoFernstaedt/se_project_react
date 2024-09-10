@@ -6,7 +6,6 @@ const EditProfileModal = ({ buttonText, onClose, isOpen, onSubmit }) => {
   const { values, handleChange, setValues } = useForm({});
   
   const handleSubmit = (e) => {
-    console.log(`modal values - name: ${values.name} avatar: ${values.avatar}`)
     e.preventDefault();
     onSubmit(values);
   };
