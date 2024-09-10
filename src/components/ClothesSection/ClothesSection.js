@@ -1,9 +1,9 @@
 import ItemCard from "../ItemCard/ItemCard";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
-import "./ClothingSection.css";
+import "./ClothesSection.css";
 
-const ClothingSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
+const ClothesSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -35,4 +35,4 @@ const ClothingSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
   );
 };
 
-export default ClothingSection;
+export default ClothesSection;

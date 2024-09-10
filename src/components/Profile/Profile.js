@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import ClothesSection from "../ClothingSection/ClothingSection";
+import ClothesSection from "../ClothesSection/ClothesSection";
 import "./Profile.css";
 
 const Profile = ({
