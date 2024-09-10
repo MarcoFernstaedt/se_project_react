@@ -285,16 +285,18 @@ const App = () => {
             <LoginModal
               onClose={handleCloseModal}
               isOpen={activeModal === "login"}
+              openRegisterModal={handleRegisterModalOpen}
               onSubmit={handleLogin}
-              buttonText={!isLoading ? "Log In" : "Adding..."}
+              buttonText={!isLoading ? "Log In" : "logging in..."}
             />
           )}
           {activeModal === "register" && (
             <RegisterModal
               onClose={handleCloseModal}
               isOpen={activeModal === "register"}
+              openLoginModal={handleLoginModalOpen}
               onSubmit={handleRegister}
-              buttonText={!isLoading ? "Register" : "Adding..."}
+              buttonText={!isLoading ? "Sign In" : "Signing in..."}
             />
           )}
           {activeModal === "edit" && (
