@@ -1,7 +1,7 @@
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
+const RegisterModal = ({ buttonText, openLoginModal, isOpen, onClose, onSubmit }) => {
   const { values, handleChange, setValues } = useForm({});
 
   const handleSubmit = (e) => {
@@ -13,7 +13,7 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
     <ModalWithForm
       title="Register"
       onClose={onClose}
-      // modalName="login"
+      buttonText={buttonText}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
@@ -53,7 +53,14 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
         onChange={handleChange}
         placeholder="Avatar Url"
       />
-      <button type="submit">Register</button>
+      <div className="modal__button-container">
+        <button className="modal__primary-button" type="submit">
+          {buttonText}
+        </button>
+        <button className='modal__secondary-button' onClick={openLoginModal} type="button">
+          or Log In
+        </button>
+      </div>
     </ModalWithForm>
   );
 };
