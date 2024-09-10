@@ -96,6 +96,44 @@
   color: black;
 }
 
+.modal__primary-button {
+  width: 73px;
+  height: 36px;
+  padding: 8px, 16px, 8px, 16px;
+  margin: 24px 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-family: "Cabinet-Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.modal__primary-button:hover {
+  background-color: #000;
+}
+
+.modal__secondary-button {
+  width: 158px;
+  height: 36px;
+  padding: 8px, 16px, 8px, 16px;
+  margin: 24px 0px;
+  background-color: #fff;
+  border: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, .5);
+  font-family: "Cabinet-Grotesk", sans-serif;
+  font-size:f 16px;
+  font-weight: 700px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 560px) {
   .modal__input_radio {
     /* margin-bottom: 12px; */
