@@ -23,6 +23,7 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems}) => {
         </h3>
         <ul className="main__card-wrapper">
           {filteredCards.map((item) => {
+            console.log(item)
             return (
               <ItemCard
                 key={item._id}

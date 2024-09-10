@@ -15,11 +15,14 @@ const getCards = () => {
   return request(`${baseUrl}/items`);
 };
 
-const postCard = ({ name, imageUrl, weather }) => {
+const postCard = ({ name, imageUrl, weather, token }) => {
+  console.log(`passed to api - name: ${name} image: ${imageUrl} weather: ${weather}`)
   const options = {
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name: name,

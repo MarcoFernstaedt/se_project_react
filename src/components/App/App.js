@@ -67,11 +67,18 @@ const App = () => {
     }
   };
 
+  const getToken = () => {
+    return localStorage.getItem("jwt");
+  };
+
   const handleOnAddItemSubmit = ({ name, imageUrl, weather }) => {
+    console.log(`passed through submit: name: ${name} image: ${imageUrl} weather: ${weather}`)
+    const token = getToken()
     const newItem = {
       name,
       imageUrl,
       weather,
+      token,
     };
 
     setIsLoading(true);
@@ -85,10 +92,6 @@ const App = () => {
         console.error(err);
       })
       .finally(() => setIsLoading(false));
-  };
-
-  const getToken = () => {
-    return localStorage.getItem("jwt");
   };
 
   const handleUpdateUserSubmit = ({ name, avatar }) => {
