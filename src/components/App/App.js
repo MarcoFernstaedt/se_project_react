@@ -100,12 +100,12 @@ const App = () => {
     };
 
     setIsLoading(true);
-    console.log(`handleUpdateUserSubmit - name: ${name} avatar: ${avatar}`)
+
     updateUser(newdata)
       .then((res) => {
         setCurrentUser(() => ({
-          name: res.data.name ? res.data.name : currentUser.name,
-          avatar: res.data.avatar ? res.data.avatar : currentUser.avatar,
+          name: res.data.name,
+          avatar: res.data.avatar,
         }));
 
         handleCloseModal();
