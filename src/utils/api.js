@@ -40,20 +40,17 @@ const deleteCard = (id) => {
 };
 
 const updateUser = ({ name, avatar, token }) => {
-  console.log(`updateUser api name: ${name} avatar: ${avatar}`)
   const options = {
     method: "PATCH",
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
   };
 
-  return request(`${baseUrl}/user/me`, options);
+  return request(`${baseUrl}/users/me`, options);
 };
-
-
 
 export { getCards, postCard, deleteCard, request, updateUser };
