@@ -31,15 +31,15 @@ const Header = ({
       </div>
       <div className="header__button-avatar">
         <ToggleSwitch />
-        <button
-          type="button"
-          onClick={onCreateModal}
-          className="header__button"
-        >
-          + Add Clothes
-        </button>
         {isLoggedIn ? (
           <>
+            <button
+              type="button"
+              onClick={onCreateModal}
+              className="header__button"
+            >
+              + Add Clothes
+            </button>
             <Link to="/profile" className="header__username">
               <p>{currentUser.name}</p>
             </Link>
