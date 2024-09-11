@@ -4,22 +4,14 @@ import ItemCard from "../ItemCard/ItemCard";
 // import { defaultClothingItems } from "../../utils/constants";
 import { getWeatherType } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./Main.css";
 
 const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
-  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const weather = getWeatherType(weatherTemp);
   const filteredCards = clothingItems.filter((item) => {
     return item.weather && item.weather.toLowerCase() === weather;
   });
-
-  if (isLoggedIn) {
-    filteredCards.filter((item) => {
-      return item.owner === currentUser._id;
-    });
-  }
 
   return (
     <main className="main">
