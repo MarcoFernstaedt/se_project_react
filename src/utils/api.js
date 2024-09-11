@@ -16,7 +16,6 @@ const getCards = () => {
 };
 
 const postCard = ({ name, imageUrl, weather, token }) => {
-  console.log(`passed to api - name: ${name} image: ${imageUrl} weather: ${weather}`)
   const options = {
     method: "POST",
     headers: {
