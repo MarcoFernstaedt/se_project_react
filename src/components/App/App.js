@@ -13,7 +13,14 @@ import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { getCards, postCard, deleteCard, updateUser } from "../../utils/api";
+import {
+  getCards,
+  postCard,
+  deleteCard,
+  removeCardLike,
+  addCardLike,
+  updateUser,
+} from "../../utils/api";
 import { signup, signin, checkTokenValidity } from "../../utils/auth";
 import {
   getForecastWeather,
@@ -188,6 +195,31 @@ const App = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = getToken();
+    // Check if this card is not currently liked
+    !isLiked
+      ? // if so, send a request to add the user's id to the card's likes array
+        // the first argument is the card's id
+        addCardLike({id, token})
+          .then((updatedCard) => {
+            console.log(updatedCard)
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, send a request to remove the user's id from the card's likes array
+        // the first argument is the card's id
+        removeCardLike({id, token})
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     const token = getToken();
     if (token) {
@@ -247,6 +279,7 @@ const App = () => {
               <Main
                 weatherTemp={temp}
                 onSelectCard={handleSelectedCard}
+                onCardLike={handleCardLike}
                 clothingItems={clothingItems}
               />
             </Route>
