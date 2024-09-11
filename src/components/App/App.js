@@ -72,7 +72,7 @@ const App = () => {
   };
 
   const handleOnAddItemSubmit = ({ name, imageUrl, weather }) => {
-    const token = getToken()
+    const token = getToken();
     const newItem = {
       name,
       imageUrl,
@@ -164,9 +164,17 @@ const App = () => {
     setActiveModal("delete");
   };
 
-  const handleCardDelete = () => {
+  const handleCardDelete = (id) => {
+    const token = getToken();
+
+    const data = {
+      id,
+      token,
+    };
+
     setIsLoading(true);
-    deleteCard(selectedCard._id)
+
+    deleteCard(data)
       .then(() => {
         const updatedClothing = clothingItems.filter((item) => {
           return item._id !== selectedCard._id;
@@ -279,6 +287,7 @@ const App = () => {
             <ModalWithConfirmation
               isOpen={activeModal === "delete"}
               onClose={handleCloseModal}
+              isSelectedCard={selectedCard}
               onSubmit={handleCardDelete}
               buttonText={!isLoading ? "Delete" : "Deleting..."}
             />
