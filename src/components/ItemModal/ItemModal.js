@@ -9,7 +9,7 @@ const ItemModal = ({ selectedCard, onClose, openModal, buttonText }) => {
   useEscape(onClose);
 
   // Checking if the current user is the owner of the current clothing item
-  const isOwn = selectedCard.owner === currentUser._id;
+  const isOwn = currentUser && currentUser._id === selectedCard.owner;
 
   // Creating a variable which you'll then set in `className` for the delete button
   const itemDeleteButtonClassName = `modal__delete-button ${
