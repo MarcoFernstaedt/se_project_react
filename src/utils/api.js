@@ -45,6 +45,32 @@ const deleteCard = ({ id, token }) => {
   return request(`${baseUrl}/items/${id}`, deleteOpiions);
 };
 
+// addCardLike
+const addCardLike = ({ id, token }) => {
+  console.log(id)
+  console.log(token)
+  const options = {
+    method: "PUT",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  };
+
+  return request(`${baseUrl}/items/${id}/likes`, options);
+};
+
+// removeCardLike
+const removeCardLike = ({ id, token }) => {
+  const options = {
+    method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  };
+
+  return request(`${baseUrl}/items/${id}/likes`, options);
+};
+
 const updateUser = ({ name, avatar, token }) => {
   const options = {
     method: "PATCH",
@@ -59,4 +85,12 @@ const updateUser = ({ name, avatar, token }) => {
   return request(`${baseUrl}/users/me`, options);
 };
 
-export { getCards, postCard, deleteCard, request, updateUser };
+export {
+  getCards,
+  postCard,
+  deleteCard,
+  request,
+  removeCardLike,
+  addCardLike,
+  updateUser,
+};
