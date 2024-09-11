@@ -1,27 +1,45 @@
 .itemCard {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .itemCard__image {
-    height: 328px;
-    width: 328px;
-    border-radius: 10px;
+  height: 328px;
+  width: 328px;
+  border-radius: 10px;
 }
 
 .itemCard__image:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.itemCard__header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: 73px;
+  padding: 2px 12px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #fff;
 }
 
 .itemCard__name {
-    position: absolute;
-    top: 16px;
-    height: 24px;
-    width: 73px;
-    padding: 2px 12px;
-    border-radius: 4px;
-    text-align: center;
-    background-color: #fff;
+  width: 49px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.itemCard__button-like {
+  height: 15px;
+  width: 18px;
+  background-color: transparent;
+  background-size: cover;
+  background-image: url(../../images/buttonlike.svg);
+  border: none;
+  cursor: pointer;
 }
