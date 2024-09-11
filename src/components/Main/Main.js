@@ -6,7 +6,7 @@ import { getWeatherType } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
-const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
+const Main = ({ weatherTemp, onSelectCard, onCardLike, clothingItems }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const weather = getWeatherType({weatherTemp, currentTemperatureUnit});
   const filteredCards = clothingItems.filter((item) => {
@@ -28,6 +28,7 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
                 key={item._id}
                 item={item}
                 onSelectCard={onSelectCard}
+                onCardLike={onCardLike}
               />
             );
           })}
