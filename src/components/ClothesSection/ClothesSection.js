@@ -5,11 +5,6 @@ import "./ClothesSection.css";
 
 const ClothesSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  // clothingItems.filter((item) => item.owner === currentUser._id).map((item) => {
-  //   console.log(item)
-  // })
-      
-  // console.log(typeof clothingItems);
 
   return (
     <>
@@ -25,7 +20,7 @@ const ClothesSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
       </div>
       <div className="clothingsection__card-wrapper">
         {clothingItems
-          .filter((item) => item.Owner === currentUser._id)
+          .filter((item) => item.owner === currentUser._id)
           .map((item) => {
             console.log(item.name);
             return (
