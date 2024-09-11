@@ -4,7 +4,10 @@ const ItemCard = ({ item, onSelectCard }) => {
   console.log(item)
   return (
     <li className="itemCard">
-      <h3 className="itemCard__name">{item.name}</h3>
+      <div className="itemCard__header">
+        <h3 className="itemCard__name">{item.name}</h3>
+        <button className='itemCard__button-like'></button>
+      </div>
       <img
         src={item.imageUrl}
         className="itemCard__image"
