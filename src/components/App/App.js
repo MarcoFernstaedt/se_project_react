@@ -203,7 +203,6 @@ const App = () => {
         // the first argument is the card's id
         addCardLike({id, token})
           .then((updatedCard) => {
-            console.log(updatedCard)
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
             );
@@ -250,7 +249,7 @@ const App = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     getCards()
