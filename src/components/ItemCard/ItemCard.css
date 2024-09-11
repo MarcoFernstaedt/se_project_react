@@ -43,3 +43,11 @@
   border: none;
   cursor: pointer;
 }
+
+.itemCard__button-like_active {
+  background-image: url(../../images/buttonlikefill.svg);
+}
+
+.itemCard__button-like_inactive {
+  background-image: url(../../images/buttonlike.svg);
+}
