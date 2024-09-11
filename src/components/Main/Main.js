@@ -6,11 +6,11 @@ import { getWeatherType } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
-const Main = ({ weatherTemp, onSelectCard, clothingItems}) => {
+const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const weather = getWeatherType(weatherTemp);
   const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weather;
+    return item.weather && item.weather.toLowerCase() === weather;
   });
 
   return (
@@ -23,7 +23,6 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems}) => {
         </h3>
         <ul className="main__card-wrapper">
           {filteredCards.map((item) => {
-            console.log(item)
             return (
               <ItemCard
                 key={item._id}
