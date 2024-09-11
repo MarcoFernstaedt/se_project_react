@@ -220,7 +220,7 @@ const App = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, [clothingItems]);
+  }, []);
 
   return (
     <div className="App">
