@@ -72,7 +72,6 @@ const App = () => {
   };
 
   const handleOnAddItemSubmit = ({ name, imageUrl, weather }) => {
-    console.log(`passed through submit: name: ${name} image: ${imageUrl} weather: ${weather}`)
     const token = getToken()
     const newItem = {
       name,
@@ -221,7 +220,7 @@ const App = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [clothingItems]);
 
   return (
     <div className="App">
