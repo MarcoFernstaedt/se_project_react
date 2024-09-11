@@ -1,8 +1,10 @@
 import { apiKey, latitude, longitude } from "../utils/constants";
-import { request } from '../utils/api';
+import { request } from "../utils/api";
 
 const getForecastWeather = () => {
-  const weatherData = request(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`)
+  const weatherData = request(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
+  );
   return weatherData;
 };
 
@@ -15,14 +17,19 @@ const parseWeatherData = (data) => {
 const parseCityData = (data) => {
   const city = data && data.name;
   return city;
-}
+};
 
-const getWeatherType = (weatherTemp) => {
-  if (weatherTemp >= 86) {
+const getWeatherType = ({ weatherTemp, currentTemperatureUnit }) => {
+  // check if isCelsius
+  let isCelsius = currentTemperatureUnit === "C";
+  // If the temperature is in Celsius, convert it to Fahrenheit for consistent weather type logic
+  const tempInFahrenheit = isCelsius ? (weatherTemp * 9) / 5 + 32 : weatherTemp;
+
+  if (tempInFahrenheit >= 86) {
     return "hot";
-  } else if (weatherTemp >= 66 && weatherTemp <= 85) {
+  } else if (tempInFahrenheit >= 66 && tempInFahrenheit <= 85) {
     return "warm";
-  } else if (weatherTemp <= 65) {
+  } else {
     return "cold";
   }
 };
