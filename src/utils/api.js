@@ -33,9 +33,13 @@ const postCard = ({ name, imageUrl, weather, token }) => {
   return request(`${baseUrl}/items`, options);
 };
 
-const deleteCard = (id) => {
+const deleteCard = ({ id, token }) => {
   const deleteOpiions = {
     method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      authorization: `Bearer ${token}`,
+    },
   };
 
   return request(`${baseUrl}/items/${id}`, deleteOpiions);
