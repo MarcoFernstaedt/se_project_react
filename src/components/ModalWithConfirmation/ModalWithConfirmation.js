@@ -1,10 +1,10 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./ModalWithConfirmation.css";
 
-const ModalWithConfirmation = ({ onClose, isOpen, onSubmit, buttonText }) => {
+const ModalWithConfirmation = ({ isSelectedCard, onClose, isOpen, onSubmit, buttonText }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit();
+    onSubmit(isSelectedCard._id);
   };
 
   return (
