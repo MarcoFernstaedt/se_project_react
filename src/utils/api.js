@@ -47,8 +47,6 @@ const deleteCard = ({ id, token }) => {
 
 // addCardLike
 const addCardLike = ({ id, token }) => {
-  console.log(id)
-  console.log(token)
   const options = {
     method: "PUT",
     headers: {
