@@ -22,7 +22,6 @@ const ClothesSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
         {clothingItems
           .filter((item) => item.owner === currentUser._id)
           .map((item) => {
-            console.log(item.name);
             return (
               <ItemCard
                 key={item._id}
