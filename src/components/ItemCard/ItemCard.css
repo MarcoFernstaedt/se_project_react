@@ -19,6 +19,7 @@
   position: absolute;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   height: 24px;
   width: 73px;
   padding: 2px 12px;
