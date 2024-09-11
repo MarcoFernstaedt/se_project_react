@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useForm } from "../../hooks/useForm";
 
 const EditProfileModal = ({ buttonText, onClose, isOpen, onSubmit }) => {
-  const { values, handleChange, setValues } = useForm({});
-  
+  const { currentUser } = useContext(CurrentUserContext);
+  const { values, handleChange, setValues } = useForm({ name: "", avatar: "" });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(values);
   };
-  
+
+  useEffect(() => {
+    setValues({
+      name: currentUser.name || "",
+      avatar: currentUser.avatar || "",
+    });
+  }, [currentUser, setValues]);
+
   return (
     <ModalWithForm
       title="Edit Profile"
@@ -22,7 +31,7 @@ const EditProfileModal = ({ buttonText, onClose, isOpen, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="text"
-        name='name'
+        name="name"
         value={values.name || ""}
         onChange={handleChange}
         placeholder="Name"
@@ -31,7 +40,7 @@ const EditProfileModal = ({ buttonText, onClose, isOpen, onSubmit }) => {
       <input
         className="modal__input modal__input_type_text"
         type="url"
-        name='avatar'
+        name="avatar"
         value={values.avatar || ""}
         onChange={handleChange}
         placeholder="Avatar"
