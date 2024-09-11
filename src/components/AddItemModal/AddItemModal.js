@@ -9,7 +9,6 @@ const AddItemModal = ({ handleCloseModal, isOpen, onAddItem, buttonText }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const {name, imageUrl, weather} = values
-    console.log(`submited name: ${name} image: ${imageUrl} weather: ${weather}`)
     onAddItem(values);
   };
 
