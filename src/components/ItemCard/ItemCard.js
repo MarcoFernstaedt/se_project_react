@@ -4,22 +4,17 @@ import "./ItemCard.css";
 
 const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  // Check if the item was liked by the current user
-  // The likes array should be an array of ids
-  // const isLiked = currentUser ? item.likes.some(id => id === currentUser._id);
-  let isLiked;
-  if (currentUser) {
-    isLiked = item.likes.some((id) => id === currentUser._id);
-  }
 
-  // Create a variable which you then set in `className` for the like button
+  // Check if the item is liked by the current user
+  const isLiked = currentUser && item.likes.includes(currentUser._id);
+
+  // Define className based on whether the item is liked
   const itemLikeButtonClassName = `itemCard__button-like ${
     isLiked ? "itemCard__button-like_active" : "itemCard__button-like_inactive"
   }`;
 
   const handleLikes = () => {
-    let id = item._id;
-    onCardLike({ id, isLiked });
+    onCardLike({ id: item._id, isLiked });
   };
 
   return (
@@ -30,6 +25,7 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
           <button
             className={itemLikeButtonClassName}
             onClick={handleLikes}
+            aria-label={isLiked ? "Unlike item" : "Like item"}
           ></button>
         )}
       </div>
