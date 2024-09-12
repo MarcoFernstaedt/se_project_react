@@ -7,7 +7,10 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   // Check if the item was liked by the current user
   // The likes array should be an array of ids
   // const isLiked = currentUser ? item.likes.some(id => id === currentUser._id);
-  const isLiked = item.likes.some((id) => id === currentUser._id);
+  let isLiked;
+  if (currentUser) {
+    isLiked = item.likes.some((id) => id === currentUser._id);
+  }
 
   // Create a variable which you then set in `className` for the like button
   const itemLikeButtonClassName = `itemCard__button-like ${
