@@ -201,7 +201,7 @@ const App = () => {
     !isLiked
       ? // if so, send a request to add the user's id to the card's likes array
         // the first argument is the card's id
-        addCardLike({id, token})
+        addCardLike({ id, token })
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
@@ -210,7 +210,7 @@ const App = () => {
           .catch((err) => console.log(err))
       : // if not, send a request to remove the user's id from the card's likes array
         // the first argument is the card's id
-        removeCardLike({id, token})
+        removeCardLike({ id, token })
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
@@ -220,46 +220,53 @@ const App = () => {
   };
 
   useEffect(() => {
-    const token = getToken();
-    if (token) {
-      checkTokenValidity(token)
-        .then((userData) => {
-          const user = {
+    const fetchUserDataAndWeather = async () => {
+      const token = getToken();
+
+      if (token) {
+        try {
+          const userData = await checkTokenValidity(token);
+          setCurrentUser({
             _id: userData._id,
             name: userData.name,
             avatar: userData.avatar,
             email: userData.email,
-          };
-          setCurrentUser(user);
+          });
           setIsLoggedIn(true);
-        })
-        .catch((error) => {
+        } catch (error) {
           console.error("Invalid token:", error);
-        });
-    } else {
-      setCurrentUser(null);
-      localStorage.removeItem("jwt");
-    }
+          localStorage.removeItem("jwt");
+          setCurrentUser(null);
+        }
+      } else {
+        setCurrentUser(null);
+        localStorage.removeItem("jwt");
+      }
 
-    getForecastWeather()
-      .then((data) => {
-        setCity(parseCityData(data));
-        setTemp(parseWeatherData(data));
-      })
-      .catch((err) => {
+      try {
+        const weatherData = await getForecastWeather();
+        setCity(parseCityData(weatherData));
+        setTemp(parseWeatherData(weatherData));
+      } catch (err) {
         console.error(err);
-      });
+      }
+    };
+
+    fetchUserDataAndWeather();
   }, [isLoggedIn]);
 
   useEffect(() => {
-    getCards()
-      .then((cards) => {
+    const fetchCards = async () => {
+      try {
+        const cards = await getCards();
         setClothingItems(cards.data);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error(err);
-      });
-  }, []);
+      }
+    };
+
+    fetchCards();
+  }, [clothingItems]);
 
   return (
     <div className="App">
