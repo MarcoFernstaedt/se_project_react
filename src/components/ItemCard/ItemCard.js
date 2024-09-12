@@ -15,7 +15,7 @@ const ItemCard = ({ item, onSelectCard, onCardLike }) => {
   }`;
 
   const handleLikes = () => {
-    let id = item.owner;
+    let id = item._id;
     onCardLike({ id, isLiked });
   };
 
