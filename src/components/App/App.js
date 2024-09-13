@@ -111,10 +111,12 @@ const App = () => {
     setIsLoading(true);
 
     updateUser(newdata)
-      .then((res) => {
+      .then((userData) => {
         setCurrentUser(() => ({
-          name: res.data.name,
-          avatar: res.data.avatar,
+          _id: currentUser._id,
+          name: userData.data.name,
+          avatar: userData.data.avatar,
+          email: userData.data.email,
         }));
 
         handleCloseModal();
