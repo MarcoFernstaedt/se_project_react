@@ -24,7 +24,7 @@ const LoginModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <label for="email" className="modal__label">
+      <label htmlFor="email" className="modal__label">
         Email
       </label>
       <input
@@ -36,7 +36,7 @@ const LoginModal = ({
         onChange={handleChange}
         placeholder="Email"
       />
-      <label for="password" className="modal__label">
+      <label htmlFor="password" className="modal__label">
         Password
       </label>
       <input

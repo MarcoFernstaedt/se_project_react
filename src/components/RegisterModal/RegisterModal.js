@@ -23,7 +23,7 @@ const RegisterModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <label for="name" className="modal__label">
+      <label htmlFor="name" className="modal__label">
         Name
       </label>
       <input
@@ -35,7 +35,7 @@ const RegisterModal = ({
         onChange={handleChange}
         placeholder="Name"
       />
-      <label for="email" className="modal__label">
+      <label htmlFor="email" className="modal__label">
         Email
       </label>
       <input
@@ -47,7 +47,7 @@ const RegisterModal = ({
         onChange={handleChange}
         placeholder="Email"
       />
-      <label for="password" className="modal__label">
+      <label htmlFor="password" className="modal__label">
         Password
       </label>
       <input
@@ -59,7 +59,7 @@ const RegisterModal = ({
         onChange={handleChange}
         placeholder="Password"
       />
-      <label for="avatar" className="modal__label">
+      <label htmlFor="avatar" className="modal__label">
         Avatar
       </label>
       <input
