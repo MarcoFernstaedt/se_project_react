@@ -21,6 +21,7 @@ const ClothesSection = ({ onSelectCard, handleOpenModal, clothingItems }) => {
       <div className="clothingsection__card-wrapper">
         {clothingItems
           .filter((item) => item.owner === currentUser._id)
+          .reverse()
           .map((item) => {
             return (
               <ItemCard
