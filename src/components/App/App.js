@@ -298,6 +298,7 @@ const App = () => {
                     handleEditProfileModal={handleEditProfileModal}
                     handleLogOut={handleLogOut}
                     onSelectCard={handleSelectedCard}
+                    onCardLike={handleCardLike}
                     handleOpenModal={handleCreateModal}
                     clothingItems={clothingItems}
                   />
