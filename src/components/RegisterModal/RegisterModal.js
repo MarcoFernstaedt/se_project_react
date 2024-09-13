@@ -1,7 +1,13 @@
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ buttonText, openLoginModal, isOpen, onClose, onSubmit }) => {
+const RegisterModal = ({
+  buttonText,
+  openLoginModal,
+  isOpen,
+  onClose,
+  onSubmit,
+}) => {
   const { values, handleChange, setValues } = useForm({});
 
   const handleSubmit = (e) => {
@@ -17,38 +23,50 @@ const RegisterModal = ({ buttonText, openLoginModal, isOpen, onClose, onSubmit }
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label">Name</label>
+      <label for="name" className="modal__label">
+        Name
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="text"
         name="name"
+        id="name"
         value={values.name || ""}
         onChange={handleChange}
         placeholder="Name"
       />
-      <label className="modal__label">Email</label>
+      <label for="email" className="modal__label">
+        Email
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="email"
         name="email"
+        id="email"
         value={values.email || ""}
         onChange={handleChange}
         placeholder="Email"
       />
-      <label className="modal__label">Password</label>
+      <label for="password" className="modal__label">
+        Password
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="password"
         name="password"
+        id="password"
         value={values.password || ""}
         onChange={handleChange}
         placeholder="Password"
       />
-      <label className="modal__label">Avatar</label>
+      <label for="avatar" className="modal__label">
+        Avatar
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="url"
         name="avatar"
+        id="avatar"
         value={values.avatar || ""}
         onChange={handleChange}
         placeholder="Avatar Url"
@@ -57,7 +75,11 @@ const RegisterModal = ({ buttonText, openLoginModal, isOpen, onClose, onSubmit }
         <button className="modal__primary-button" type="submit">
           {buttonText}
         </button>
-        <button className='modal__secondary-button' onClick={openLoginModal} type="button">
+        <button
+          className="modal__secondary-button"
+          onClick={openLoginModal}
+          type="button"
+        >
           or Log In
         </button>
       </div>

@@ -1,8 +1,14 @@
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "../ModalWithConfirmation/ModalWithConfirmation.css"
+import "../ModalWithConfirmation/ModalWithConfirmation.css";
 
-const LoginModal = ({ buttonText, isOpen, onClose, openRegisterModal, onSubmit }) => {
+const LoginModal = ({
+  buttonText,
+  isOpen,
+  onClose,
+  openRegisterModal,
+  onSubmit,
+}) => {
   const { values, handleChange, setValues } = useForm({});
 
   const handleSubmit = (e) => {
@@ -18,20 +24,26 @@ const LoginModal = ({ buttonText, isOpen, onClose, openRegisterModal, onSubmit }
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label">Email</label>
+      <label for="email" className="modal__label">
+        Email
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="email"
         name="email"
+        id="email"
         value={values.email || ""}
         onChange={handleChange}
         placeholder="Email"
       />
-      <label className="modal__label">Password</label>
+      <label for="password" className="modal__label">
+        Password
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="password"
         name="password"
+        id="password"
         value={values.password || ""}
         onChange={handleChange}
         placeholder="Password"
@@ -40,7 +52,11 @@ const LoginModal = ({ buttonText, isOpen, onClose, openRegisterModal, onSubmit }
         <button className="modal__primary-button" type="submit">
           {buttonText}
         </button>
-        <button className='modal__secondary-button' onClick={openRegisterModal} type="button">
+        <button
+          className="modal__secondary-button"
+          onClick={openRegisterModal}
+          type="button"
+        >
           or Sign Up
         </button>
       </div>

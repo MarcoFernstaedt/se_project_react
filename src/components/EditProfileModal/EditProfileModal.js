@@ -27,20 +27,26 @@ const EditProfileModal = ({ buttonText, onClose, isOpen, onSubmit }) => {
       onSubmit={handleSubmit}
       buttonText={buttonText}
     >
-      <label className="modal__label">Name</label>
+      <label for="name" className="modal__label">
+        Name
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="text"
         name="name"
+        id="name"
         value={values.name || ""}
         onChange={handleChange}
         placeholder="Name"
       />
-      <label className="modal__label">Avatar</label>
+      <label for="avatar" className="modal__label">
+        Avatar
+      </label>
       <input
         className="modal__input modal__input_type_text"
         type="url"
         name="avatar"
+        id="avatar"
         value={values.avatar || ""}
         onChange={handleChange}
         placeholder="Avatar"
