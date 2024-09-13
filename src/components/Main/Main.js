@@ -22,7 +22,7 @@ const Main = ({ weatherTemp, onSelectCard, onCardLike, clothingItems }) => {
           wear:
         </h3>
         <ul className="main__card-wrapper">
-          {filteredCards.map((item) => {
+          {filteredCards.reverse().map((item) => {
             return (
               <ItemCard
                 key={item._id}
