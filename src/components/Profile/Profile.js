@@ -5,6 +5,7 @@ import "./Profile.css";
 
 const Profile = ({
   onSelectCard,
+  onCardLike,
   handleOpenModal,
   clothingItems,
   handleLogOut,
@@ -21,6 +22,7 @@ const Profile = ({
       <section className="profile__clothessection">
         <ClothesSection
           onSelectCard={onSelectCard}
+          onCardLike={onCardLike}
           clothingItems={clothingItems}
           handleOpenModal={handleOpenModal}
         />
