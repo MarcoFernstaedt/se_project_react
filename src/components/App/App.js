@@ -209,7 +209,7 @@ const App = () => {
               cards.map((item) => (item._id === id ? updatedCard : item))
             );
           })
-          .catch((err) => console.log(err))
+          .catch(console.error)
       : // if not, send a request to remove the user's id from the card's likes array
         // the first argument is the card's id
         removeCardLike({ id, token })
@@ -218,7 +218,7 @@ const App = () => {
               cards.map((item) => (item._id === id ? updatedCard : item))
             );
           })
-          .catch((err) => console.log(err));
+          .catch(console.error);
   };
 
   useEffect(() => {
