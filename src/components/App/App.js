@@ -91,7 +91,7 @@ const App = () => {
 
     postCard(newItem)
       .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+        setClothingItems([...clothingItems, data.data]);
         handleCloseModal();
       })
       .catch((err) => {
@@ -206,7 +206,7 @@ const App = () => {
         addCardLike({ id, token })
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) => (item._id === id ? updatedCard.data : item))
             );
           })
           .catch(console.error)
@@ -215,7 +215,7 @@ const App = () => {
         removeCardLike({ id, token })
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedCard : item))
+              cards.map((item) => (item._id === id ? updatedCard.data : item))
             );
           })
           .catch(console.error);
@@ -268,7 +268,7 @@ const App = () => {
     };
 
     fetchCards();
-  }, [clothingItems]);
+  }, []);
 
   return (
     <div className="App">
