@@ -8,7 +8,7 @@ import ModalWithConfirmation from "../ModalWithConfirmation/ModalWithConfirmatio
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
-import ProtectedRoute from "../../utils/ProtectedRoute.js";
+import ProtectedRoute from "../../components/ProtectedRoute.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
