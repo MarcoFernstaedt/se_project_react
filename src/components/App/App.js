@@ -84,7 +84,7 @@ const App = () => {
     request()
       .then(handleCloseModal)
       .catch(console.error)
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   }
 
   const handleOnAddItemSubmit = ({ name, imageUrl, weather }) => {
@@ -99,7 +99,6 @@ const App = () => {
     const makeRequest = () => {
       return postCard(newItem).then((data) => {
         setClothingItems([...clothingItems, data.data]);
-        handleCloseModal();
       });
     };
 
