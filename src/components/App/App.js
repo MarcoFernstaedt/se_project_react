@@ -189,6 +189,8 @@ const App = () => {
         setClothingItems(updatedClothing);
       });
     };
+
+    handleSubmit(makeRequest);
   };
 
   const handleCardLike = ({ id, isLiked }) => {
