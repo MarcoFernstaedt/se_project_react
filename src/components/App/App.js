@@ -78,6 +78,15 @@ const App = () => {
     return localStorage.getItem("jwt");
   };
 
+  function handleSubmit(request) {
+    setIsLoading(true);
+
+    request()
+      .then(handleCloseModal)
+      .catch(console.error)
+      .finally(setIsLoading(false));
+  }
+
   const handleOnAddItemSubmit = ({ name, imageUrl, weather }) => {
     const token = getToken();
     const newItem = {
@@ -87,17 +96,14 @@ const App = () => {
       token,
     };
 
-    setIsLoading(true);
-
-    postCard(newItem)
-      .then((data) => {
+    const makeRequest = () => {
+      return postCard(newItem).then((data) => {
         setClothingItems([...clothingItems, data.data]);
         handleCloseModal();
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => setIsLoading(false));
+      });
+    };
+
+    handleSubmit(makeRequest);
   };
 
   const handleUpdateUserSubmit = ({ name, avatar }) => {
@@ -108,23 +114,18 @@ const App = () => {
       token,
     };
 
-    setIsLoading(true);
-
-    updateUser(newdata)
-      .then((userData) => {
+    const makeRequest = () => {
+      return updateUser(newdata).then((userData) => {
         setCurrentUser(() => ({
           _id: currentUser._id,
           name: userData.data.name,
           avatar: userData.data.avatar,
           email: userData.data.email,
         }));
+      });
+    };
 
-        handleCloseModal();
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => setIsLoading(false));
+    handleSubmit(makeRequest);
   };
 
   const handleLogin = async ({ email, password }) => {
@@ -175,26 +176,19 @@ const App = () => {
 
   const handleCardDelete = (id) => {
     const token = getToken();
-
     const data = {
       id,
       token,
     };
 
-    setIsLoading(true);
-
-    deleteCard(data)
-      .then(() => {
+    const makeRequest = () => {
+      return deleteCard(data).then(() => {
         const updatedClothing = clothingItems.filter((item) => {
           return item._id !== selectedCard._id;
         });
         setClothingItems(updatedClothing);
-        handleCloseModal();
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => setIsLoading(false));
+      });
+    };
   };
 
   const handleCardLike = ({ id, isLiked }) => {
