@@ -5,6 +5,7 @@
 - Download Back-ENd
 - Description and Functionality
 - Technologies Used
+- Features
 - Figma
 - GitHub
 - Live Site
@@ -27,6 +28,16 @@ The idea of the application is pretty simple - we make a call to an API, which t
 - React
 - React Router/Switches and State Managment
 
+**Features**
+
+- Authentication and Authorization
+- Curent weather in F and C
+- User registration
+- User profile data can be updated
+- user can add, like and delete cards
+- implament a server
+- Implament a MongoDB Database
+
 
 **Figma**
 
@@ -42,8 +53,5 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 **Future Features**
 
-- Authentacation
-- implament a server
-- Implament a Database
 - deploy t Google Cloud Provider
 - Connect music to play
