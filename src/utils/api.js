@@ -1,4 +1,6 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "api.wtwrweatherapp.twilightparadox.com"
+  : "https://localhost:3001";
 
 const request = (url, options) => {
   return fetch(url, options).then(processServerResponce);

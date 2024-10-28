@@ -1,6 +1,8 @@
 import { request } from "./api";
 
-const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "api.wtwrweatherapp.twilightparadox.com"
+  : "https://localhost:3001";
 
 const signup = async ({ name, avatar, email, password }) => {
   try {
