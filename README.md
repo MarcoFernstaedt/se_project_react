@@ -37,7 +37,7 @@ The idea of the application is pretty simple - we make a call to an API, which t
 - user can add, like and delete cards
 - implament a server
 - Implament a MongoDB Database
-
+- Hosted on a Google Cloud Provider
 
 **Figma**
 
@@ -49,9 +49,4 @@ The idea of the application is pretty simple - we make a call to an API, which t
 
 **Live Site**
 
-- [https://marcofernstaedt.github.io/se_project_react/]
-
-**Future Features**
-
-- deploy t Google Cloud Provider
-- Connect music to play
+- [https://wtwrweatherapp.twilightparadox.com/#/]
