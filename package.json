@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && src -r ./build/* fernstaedtmarco@wtwrweatherapp.twilightparadox.com:/home/fernstaedtmarco/frontend"
+    "deploy": "npm run build && scp -r ./build/* fernstaedtmarco@wtwrweatherapp.twilightparadox.com:/home/fernstaedtmarco/frontend"
   },
   "eslintConfig": {
     "extends": [
