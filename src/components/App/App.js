@@ -12,7 +12,7 @@ import ProtectedRoute from "../../components/ProtectedRoute.js";
 import { useEffect, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import {
   getCards,
   postCard,
@@ -32,7 +32,6 @@ import "./App.css";
 const App = () => {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [originalTemp, setOriginalTemp] = useState("");
   const [temp, setTemp] = useState(0);
   const [city, setCity] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
