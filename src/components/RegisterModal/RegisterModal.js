@@ -8,7 +8,7 @@ const RegisterModal = ({
   onClose,
   onSubmit,
 }) => {
-  const { values, handleChange, setValues } = useForm({});
+  const { values, handleChange } = useForm({});
 
   const handleSubmit = (e) => {
     e.preventDefault();

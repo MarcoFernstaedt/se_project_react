@@ -4,7 +4,7 @@ import "./AddItemModal.css";
 import { useForm } from "../../hooks/useForm";
 
 const AddItemModal = ({ handleCloseModal, isOpen, onAddItem, buttonText }) => {
-  const { values, handleChange, setValues } = useForm({});
+  const { values, handleChange } = useForm({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
